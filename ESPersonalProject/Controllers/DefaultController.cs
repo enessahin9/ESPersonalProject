@@ -30,5 +30,25 @@ namespace ESPersonalProject.Controllers
 		{
 			return PartialView();
 		}
+
+		public PartialViewResult ServicePartial()
+		{
+			return PartialView();	
+		}
+
+		public PartialViewResult PortfolioPartial() 
+		{
+			return PartialView();
+		}
+
+		public PartialViewResult ContactPartial()
+		{
+			return PartialView();	
+		}
+
+		public PartialViewResult FooterPartial()
+		{
+			return PartialView();
+		}
 	}
 }
