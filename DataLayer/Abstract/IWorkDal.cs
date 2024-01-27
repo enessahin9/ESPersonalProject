@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Abstract
 {
-	public interface IWorkDal : IGenericDal<Work>
+	public interface IWorkDal : IGenericDal<Portfolio>
 	{
 	}
 }

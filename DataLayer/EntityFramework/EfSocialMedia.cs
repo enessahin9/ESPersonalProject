@@ -1,6 +1,6 @@
 ﻿using DataLayer.Abstract;
 using DataLayer.Repository;
-using Model;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
