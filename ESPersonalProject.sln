@@ -5,11 +5,11 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESPersonalProject", "ESPersonalProject\ESPersonalProject.csproj", "{DD04335B-0365-469D-8039-76C9AF567EB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{4FF68810-3783-4CB5-A5D5-0D206C17FBD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Model\Models.csproj", "{4FF68810-3783-4CB5-A5D5-0D206C17FBD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{8DD71BD7-FB0D-4B1C-912B-93F5D4508AEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayers", "DataLayer\DataLayers.csproj", "{8DD71BD7-FB0D-4B1C-912B-93F5D4508AEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussines", "Bussines\Bussines.csproj", "{59129E8B-44E2-4705-9B20-8F80F5489FD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Bussines\Business.csproj", "{59129E8B-44E2-4705-9B20-8F80F5489FD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

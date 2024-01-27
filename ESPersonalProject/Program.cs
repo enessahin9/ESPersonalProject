@@ -1,3 +1,4 @@
+using Bussines.Container;
 using DataLayer;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,8 +9,10 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("constr")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+ExtensionsDb.ContainerDependencies(builder.Services);
 var app = builder.Build();
+
+
 
 
 
@@ -26,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();
