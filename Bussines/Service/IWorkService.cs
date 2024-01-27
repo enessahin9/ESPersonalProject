@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bussines.Service
 {
-	public interface IWorkService : IGenericService<Work>
+	public interface IWorkService : IGenericService<Portfolio>
 	{
 	}
 }

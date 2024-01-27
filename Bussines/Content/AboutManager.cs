@@ -1,6 +1,6 @@
 ﻿using Bussines.Service;
 using DataLayer.Abstract;
-using Model;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
