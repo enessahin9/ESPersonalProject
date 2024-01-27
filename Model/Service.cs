@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Models
 {
-    public class Service: BaseModel
-    {
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
-    }
+	public class Service : BaseModel
+	{
+		public string Description { get; set; }
+		public string ImageUrl { get; set; }
+	}
 }

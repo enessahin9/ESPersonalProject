@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-	public class SocialMedia : BaseModel
+	public class Portfolio : BaseModel
 	{
-		public string Url { get; set; }
-		public string Icon { get; set; }
+		public string Image { get; set; }
+		public string? Title { get; set; }
 	}
 }
