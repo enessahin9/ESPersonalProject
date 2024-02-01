@@ -18,9 +18,5 @@ namespace DataLayer
 		public DbSet<Skill> Skill { get; set; }
 		public DbSet<SocialMedia> SocialMedias { get; set; }
 		public DbSet<Portfolio> Works { get; set; }
-		public DbSet<Deneme> Denemes { get; set; }
-
-
-
 	}
 }
