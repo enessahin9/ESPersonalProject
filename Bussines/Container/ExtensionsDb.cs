@@ -1,11 +1,12 @@
-﻿using Bussines.Content;
-using Bussines.Service;
+﻿using Business.Content;
+using Business.Service;
 using DataLayer.Abstract;
 using DataLayer.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,9 @@ namespace Bussines.Container
 		{
 			services.AddScoped<IAboutService, AboutManager>();
 			services.AddScoped<IAboutDal, EfAboutDal>();
+			services.AddScoped<IServiceService, ServiceManager>();
+			services.AddScoped<IServiceDal,EfServiceDal>();	
+
 		}
 	}
 }

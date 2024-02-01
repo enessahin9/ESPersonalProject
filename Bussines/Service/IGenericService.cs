@@ -4,18 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bussines.Service
+namespace Business.Service;
+
+public interface IGenericService<T>
 {
-	public interface IGenericService<T>
-	{
-		void TAdd(T t);
+	void TAdd(T t);
 
-		void TDelete(T t);
+	void TDelete(T t);
 
-		void TUpdate(T t);
+	void TUpdate(T t);
 
-		List<T> TGetList();
+	List<T> TGetList();
 
-		T TGetById(int id);
-	}
+	T TGetById(int id);
 }

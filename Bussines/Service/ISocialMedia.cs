@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bussines.Service
+namespace Business.Service;
+
+public interface ISocialMedia : IGenericService<SocialMedia>
 {
-	public interface ISocialMedia : IGenericService<SocialMedia>
-	{
-	}
 }

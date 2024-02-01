@@ -1,4 +1,4 @@
-﻿using Bussines.Service;
+﻿using Business.Service;
 using DataLayer.Abstract;
 using Models;
 using System;
@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bussines.Content
+namespace Business.Content
 {
 	public class AboutManager : IGenericService<About>, IAboutService
 	{
-
 		private readonly IAboutDal _aboutDal;
 
 		public AboutManager(IAboutDal aboutDal)

@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bussines.Service
+namespace Business.Service;
+
+public interface IMessageService: IGenericService<Message>
 {
-	public interface IMessageService: IGenericService<Message>
-	{
-	}
 }
