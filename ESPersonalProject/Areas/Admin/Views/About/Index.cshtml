@@ -1,67 +1,167 @@
-﻿@using Models
-@model List<About>
-
-@{
-	ViewData["Title"] = "Index";
-	Layout = "~/Views/Shared/AdminLayout.cshtml";
+﻿﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <div>
-	<div class="card">
-		<div class="card-header text-white bg-danger bg-gradient">
-			<span class="fs-4">Hakkında Bölümü Listesi</span>
-			<a href="#" id="btnEkle" class="btn btn-warning ms-2">Hakkında Ekle</a>
-		</div>
-		<div class="card-body">
-			<table id="aboutTable" class="table table-bordered table-striped" style="width:100%">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>İsim</th>
-						<th>Ünvan</th>
-						<th>E-Mail</th>
-						<th>Fotoğraf</th>
-						<th>İletişim</th>
-						<th>Açıklama</th>
-						<th>Oluşturma Tarihi</th>
-						<th>İşlemler</th>
-					</tr>
-				</thead>
-			</table>
-		</div>
-	</div>
+    <div class="card">
+        <div class="card-header text-white bg-danger bg-gradient">
+            <span class="fs-4">Hakkında Bölümü Listesi</span>
+            <a href="#" id="btnEkle" class="btn btn-warning ms-2">Hakkında Ekle</a>
+        </div>
+        <div class="card-body">
+            <table id="aboutTable" class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Ünvan</th>
+                        <th>Email</th>
+                        <th>Açıklama</th>
+                        <th>Telefon</th>
+                        <th>Görsel</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+     aria-labelledby="modalTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Hakkında Bölümü</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="mb-3">
+                        <label class="form-label">Ad Soyad</label>
+                        <input type="text" id="txtName" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ünvan</label>
+                        <textarea id="txtProfile" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea id="txtDescription" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefon No</label>
+                        <textarea id="txtPhone" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Adresi</label>
+                        <textarea id="txtEmail" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Görsel</label>
+                        <input type="file" id="fileImage" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <a href="#" id="btnSave" class="btn btn-primary">Kaydet</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
+
 
 <script>
-	jQuery.noConflict();
+    $(document).ready(function () {
+        $("#btnEkle").click(function () {
+            $("#modalTitle").text("Hakkında Bölümü");
+            $("#btnSave").text("Kaydet").removeClass('btn-success').addClass('btn-primary');
+            $("#txtName").val("");
+            $("#txtProfile").val("");
+            $("#txtDescription").val("");
+            $("#txtPhone").val("");
+            $("#txtEmail").val("");
+            $("#txtImage").val("");
 
-	jQuery(document).ready(function ($) {
-		var dataTable = $('#aboutTable').DataTable({
-			ajax: {
-				url: '/Admin/About/GetAll',
-				dataSrc: ''
-			},
-			columns: [
-				{ data: 'id' },
-				{ data: 'name' },
-				{ data: 'profile' },
-				{ data: 'email' },
-				{ data: 'image' },
-				{ data: 'phone' },
-				{ data: 'description' },
-				{ data: 'dataCreated' },
-				{
-					data: null,
-					render: function (data, type, row) {
-						return `<a href="#" onclick="deleteAbout(${row.id})" class="btn btn-sm btn-danger">Sil</a>
-															<a href="#" onclick="editAbout(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
-					}
-				}
-			]
-		});
-	});
+            $("#modal").modal('show');
+
+            // Kaydet düğmesi tıklama olayı
+            $("#btnSave").off().click(function () {
+                let veri = {
+                    name: $("#txtName").val(),
+                    profile: $("#txtProfile").val(),
+                    description: $("#txtDescription").val(), // Fix the typo here
+                    phone: $("#txtPhone").val(),
+                    email: $("#txtEmail").val(),
+                };
+
+                let fileData = new FormData();
+                fileData.append('name', veri.name);
+                fileData.append('profile', veri.profile);
+                fileData.append('description', veri.description); // Fix the typo here
+                fileData.append('phone', veri.phone);
+                fileData.append('email', veri.email);
+                fileData.append("image", $("#fileImage")[0].files[0]);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Admin/About/AboutAdd',
+                    data: fileData,
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        $("#modal").modal('hide');
+                        $("#txtName").val("");
+                        $("#txtProfile").val("");
+                        $("#txtDescription").val("");
+                        $("#txtPhone").val("");
+                        $("#txtEmail").val("");
+                        $("#txtImage").val("");
+                        dataTable.ajax.reload();
+                    },
+                    error: function (error) {
+                        Swal.fire(
+                            'Hata!',
+                            'Veri kaydetme işlemi başarısız oldu. Hata: ' + error.statusText,
+                            'error'
+                        );
+                    }
+                });
+            });
+        });
+
+        var dataTable = $('#aboutTable').DataTable({
+            ajax: {
+                url: '/Admin/About/GetAll',
+                dataSrc: ''
+            },
+            columns: [
+                { data: 'id' },
+                { data: 'name' },
+                { data: 'profile' },
+                { data: 'email' },
+                { data: 'description' },
+                { data: 'phone' },
+                { data: 'image' },
+                { data: 'dataCreated' },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        return `<a href="#" onclick="deleteAbout(${row.id})" class="btn btn-sm btn-danger">Sil</a>
+                                <a href="#" onclick="editAbout(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+                    }
+                }
+            ]
+        });
+    });
+
+
+
+
 </script>
