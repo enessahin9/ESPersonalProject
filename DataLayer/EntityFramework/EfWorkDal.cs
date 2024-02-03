@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.EntityFramework
 {
-	internal class EfWorkDal : GenericRepository<Portfolio>, IWorkDal
+	public class EfWorkDal : GenericRepository<Portfolio>, IWorkDal
 	{
 		public EfWorkDal(AppDbContext appDbContext) : base(appDbContext)
 		{
