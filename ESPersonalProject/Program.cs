@@ -19,7 +19,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+	app.UseExceptionHandler("/Home/Error");
 }
 app.UseStaticFiles();
 
@@ -28,7 +28,12 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Default}/{action=Index}/{id?}");
+	name: "areas",
+	pattern: "{area}/{controller=Home}/{action=Index}/{id?}"
+	);
+
+app.MapControllerRoute(
+	name: "default",
+	pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();

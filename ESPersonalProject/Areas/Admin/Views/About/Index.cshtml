@@ -1,0 +1,67 @@
+﻿@using Models
+@model List<About>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-header text-white bg-danger bg-gradient">
+			<span class="fs-4">Hakkında Bölümü Listesi</span>
+			<a href="#" id="btnEkle" class="btn btn-warning ms-2">Hakkında Ekle</a>
+		</div>
+		<div class="card-body">
+			<table id="aboutTable" class="table table-bordered table-striped" style="width:100%">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>İsim</th>
+						<th>Ünvan</th>
+						<th>E-Mail</th>
+						<th>Fotoğraf</th>
+						<th>İletişim</th>
+						<th>Açıklama</th>
+						<th>Oluşturma Tarihi</th>
+						<th>İşlemler</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
+<script>
+	jQuery.noConflict();
+
+	jQuery(document).ready(function ($) {
+		var dataTable = $('#aboutTable').DataTable({
+			ajax: {
+				url: '/Admin/About/GetAll',
+				dataSrc: ''
+			},
+			columns: [
+				{ data: 'id' },
+				{ data: 'name' },
+				{ data: 'profile' },
+				{ data: 'email' },
+				{ data: 'image' },
+				{ data: 'phone' },
+				{ data: 'description' },
+				{ data: 'dataCreated' },
+				{
+					data: null,
+					render: function (data, type, row) {
+						return `<a href="#" onclick="deleteAbout(${row.id})" class="btn btn-sm btn-danger">Sil</a>
+															<a href="#" onclick="editAbout(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+					}
+				}
+			]
+		});
+	});
+</script>
