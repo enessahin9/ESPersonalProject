@@ -37,22 +37,30 @@ public class AboutController : Controller
 	[HttpPost]
 	public IActionResult AboutAdd(About about, IFormFile image)
 	{
-        if (image != null && image.Length > 0)
-        {
+		if (image != null && image.Length > 0)
+		{
 
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+			var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+			var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
 
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                image.CopyTo(stream);
-            }
+			using (var stream = new FileStream(filePath, FileMode.Create))
+			{
+				image.CopyTo(stream);
+			}
 
 
-            about.Image = "/images/" + fileName;
-        }
+			about.Image = "/images/" + fileName;
+		}
 
-        _aboutService.TAdd(about);
-        return Ok();
-    }
+		_aboutService.TAdd(about);
+		return Ok();
+	}
+
+	[HttpPost]
+	public IActionResult AboutDelete(int id)
+	{
+		var result = _aboutService.TGetById(id);
+		_aboutService.TDelete(result);
+		return Ok();
+	}
 }
