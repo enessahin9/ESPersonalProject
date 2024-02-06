@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ESPersonalProject.Areas.Admin.Controllers;
 
@@ -33,22 +34,25 @@ public class AboutController : Controller
 		return View();
 	}
 
-	[HttpGet]
-	public IActionResult AboutAdd(About about, IFormFile formFile)
+	[HttpPost]
+	public IActionResult AboutAdd(About about, IFormFile image)
 	{
-		if (formFile != null && formFile.Length > 0)
-		{
-			var fileName = Guid.NewGuid().ToString() + Path.GetExtension(formFile.FileName);
-			var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
-			using (var stream = new FileStream(filePath, FileMode.Create))
-			{
-				formFile.CopyTo(stream);
-			}
+        if (image != null && image.Length > 0)
+        {
 
-			about.Image = "/images/" + fileName;
-		}
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
 
-		_aboutService.TAdd(about);
-		return Ok();
-	}
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                image.CopyTo(stream);
+            }
+
+
+            about.Image = "/images/" + fileName;
+        }
+
+        _aboutService.TAdd(about);
+        return Ok();
+    }
 }

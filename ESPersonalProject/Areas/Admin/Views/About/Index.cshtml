@@ -1,4 +1,4 @@
-﻿﻿@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Ünvan</label>
-                        <textarea id="txtProfile" class="form-control"></textarea>
+                        <input type="text" id="txtProfile" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Açıklama</label>
@@ -53,11 +53,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Telefon No</label>
-                        <textarea id="txtPhone" class="form-control"></textarea>
+                        <input type="tel" id="txtPhone" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Email Adresi</label>
-                        <textarea id="txtEmail" class="form-control"></textarea>
+                        <input type="email" id="txtEmail" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Görsel</label>
@@ -72,8 +72,18 @@
         </div>
     </div>
 </div>
-
+<!-- jQuery (en az 3.3.1 sürümü) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- DataTables (1.13.7 sürümü) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Bootstrap JS (uygun sürümü ekleyin) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 
@@ -96,7 +106,7 @@
                 let veri = {
                     name: $("#txtName").val(),
                     profile: $("#txtProfile").val(),
-                    description: $("#txtDescription").val(), // Fix the typo here
+                    desciription: $("#txtDescription").val(),
                     phone: $("#txtPhone").val(),
                     email: $("#txtEmail").val(),
                 };
@@ -104,9 +114,10 @@
                 let fileData = new FormData();
                 fileData.append('name', veri.name);
                 fileData.append('profile', veri.profile);
-                fileData.append('description', veri.description); // Fix the typo here
+                fileData.append('description', veri.desciription);
                 fileData.append('phone', veri.phone);
                 fileData.append('email', veri.email);
+
                 fileData.append("image", $("#fileImage")[0].files[0]);
 
                 $.ajax({
@@ -138,7 +149,7 @@
 
         var dataTable = $('#aboutTable').DataTable({
             ajax: {
-                url: '/Admin/About/GetAll',
+                url:'/Admin/About/GetAll',
                 dataSrc: ''
             },
             columns: [
@@ -154,7 +165,7 @@
                     data: null,
                     render: function (data, type, row) {
                         return `<a href="#" onclick="deleteAbout(${row.id})" class="btn btn-sm btn-danger">Sil</a>
-                                <a href="#" onclick="editAbout(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+                                        <a href="#" onclick="editAbout(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
                     }
                 }
             ]
@@ -165,3 +176,7 @@
 
 
 </script>
+
+
+
+
