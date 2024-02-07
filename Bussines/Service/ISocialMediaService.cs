@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace Business.Service;
 
-public interface ISocialMedia : IGenericService<SocialMedia>
+public interface ISocialMediaService : IGenericService<SocialMedia>
 {
 }

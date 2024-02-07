@@ -18,14 +18,24 @@ namespace Bussines.Container
 		{
 			services.AddScoped<IAboutService, AboutManager>();
 			services.AddScoped<IAboutDal, EfAboutDal>();
+
 			services.AddScoped<IServiceService, ServiceManager>();
 			services.AddScoped<IServiceDal, EfServiceDal>();
+
 			services.AddScoped<IWorkDal, EfWorkDal>(); // Portfolio
 			services.AddScoped<IWorkService, WorkManager>();// Portfolio
+
 			services.AddScoped<IContactDal, EfContactDal>();
 			services.AddScoped<IContactService, ContactManager>();
 
+			services.AddScoped<IMessageDal, EfMessageDal>();
+			services.AddScoped<IMessageService, MessageManager>();
 
+			services.AddScoped<ISkillDal, EfSkillDal>();
+			services.AddScoped<ISkillService, SkillManager>();
+
+			services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+			services.AddScoped<ISocialMediaService, SocialMediaManager>();
 		}
 	}
 }

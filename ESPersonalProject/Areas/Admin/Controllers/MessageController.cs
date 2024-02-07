@@ -20,6 +20,8 @@ public class MessageController : Controller
 	{
 		return View();
 	}
+
+	[HttpGet]
 	public IActionResult GetAll()
 	{
 		return Json(_messageService.TGetList());

@@ -19,17 +19,17 @@ public class ServiceManager : IGenericService<Models.Service>, IServiceService
 
 	public void TAdd(Models.Service t)
 	{
-		throw new NotImplementedException();
+		_serviceDal.Add(t);	
 	}
 
 	public void TDelete(Models.Service t)
 	{
-		throw new NotImplementedException();
+	 _serviceDal.Delete(t);	
 	}
 
 	public Models.Service TGetById(int id)
 	{
-		throw new NotImplementedException();
+		return _serviceDal.GetById(id);	
 	}
 
 	public List<Models.Service> TGetList()
@@ -39,6 +39,6 @@ public class ServiceManager : IGenericService<Models.Service>, IServiceService
 
 	public void TUpdate(Models.Service t)
 	{
-		throw new NotImplementedException();
+		_serviceDal.Update(t);	
 	}
 }

@@ -7,40 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Content
+namespace Business.Content;
+
+public class WorkManager : IGenericService<Portfolio>, IWorkService
 {
-	public class WorkManager : IGenericService<Portfolio>, IWorkService
+	private IWorkDal _workDal;
+
+	public WorkManager(IWorkDal workDal)
 	{
-		private IWorkDal _workDal;
+		_workDal = workDal;
+	}
 
-		public WorkManager(IWorkDal workDal)
-		{
-			_workDal = workDal;
-		}
+	public void TAdd(Portfolio t)
+	{
+		_workDal.Add(t);
+	}
 
-		public void TAdd(Portfolio t)
-		{
-			throw new NotImplementedException();
-		}
+	public void TDelete(Portfolio t)
+	{
+		_workDal.Delete(t);
+	}
 
-		public void TDelete(Portfolio t)
-		{
-			throw new NotImplementedException();
-		}
+	public Portfolio TGetById(int id)
+	{
+		return _workDal.GetById(id);
+	}
 
-		public Portfolio TGetById(int id)
-		{
-			throw new NotImplementedException();
-		}
+	public List<Portfolio> TGetList()
+	{
+		return _workDal.GetList();
+	}
 
-		public List<Portfolio> TGetList()
-		{
-			return _workDal.GetList();
-		}
-
-		public void TUpdate(Portfolio t)
-		{
-			throw new NotImplementedException();
-		}
+	public void TUpdate(Portfolio t)
+	{
+		_workDal.Update(t);
 	}
 }

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataLayer.EntityFramework
 {
-	public class EfSocialMedia : GenericRepository<SocialMedia>, ISocialMediaDal
+	public class EfSocialMediaDal : GenericRepository<SocialMedia>, ISocialMediaDal
 	{
-		public EfSocialMedia(AppDbContext appDbContext) : base(appDbContext)
+		public EfSocialMediaDal(AppDbContext appDbContext) : base(appDbContext)
 		{
 		}
 	}

@@ -6,18 +6,17 @@
 <div>
 	<div class="card">
 		<div class="card-header text-white bg-danger bg-gradient">
-			<span class="fs-4">Mesajlar</span>
-			<a href="#" id="btnEkle" class="btn btn-warning ms-2">Yeni Mesaj Ekle</a>
+			<span class="fs-4">Projeler</span>
+			<a href="#" id="btnEkle" class="btn btn-warning ms-2">Yeni Proje Ekle</a>
 		</div>
 		<div class="card-body">
-			<table id="messageTable" class="table table-bordered table-striped" style="width:100%">
+			<table id="workTable" class="table table-bordered table-striped" style="width:100%">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Ad Soyad</th>
-						<th>Email</th>
+						<th>Proje Adı</th>
 						<th>Açıklama</th>
-						<th>Başlık</th>
+						<th>İkon</th>
 						<th>Oluşturulma Tarihi</th>
 						<th>İşlemler</th>
 					</tr>
@@ -32,26 +31,22 @@
 	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="modalTitle">Yeni Mesaj Oluştur</h5>
+				<h5 class="modal-title" id="modalTitle">Yeni Proje Oluştur</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<div class="container">
 					<div class="mb-3">
-						<label class="form-label">Ad Soyad</label>
+						<label class="form-label">Proje Adı</label>
 						<input type="text" id="txtName" class="form-control">
 					</div>
 					<div class="mb-3">
-						<label class="form-label">Başlık</label>
+						<label class="form-label">Açıklama</label>
 						<textarea id="txtTitle" class="form-control"></textarea>
 					</div>
 					<div class="mb-3">
-						<label class="form-label">Açıklama</label>
-						<textarea id="txtContent" class="form-control"></textarea>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Email Adresi</label>
-						<input type="email" id="txtEmail" class="form-control">
+						<label class="form-label">İkon</label>
+						<textarea id="txtIcon" class="form-control"></textarea>
 					</div>
 				</div>
 			</div>
@@ -77,42 +72,40 @@
 <!-- Bootstrap JS (uygun sürümü ekleyin) -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+
 <script>
 	$(document).ready(function () {
 		$("#btnEkle").click(function () {
-			$("#modalTitle").text("Yeni Mesaj Oluştur");
+			$("#modalTitle").text("Yeni Proje Oluştur");
 			$("#btnSave").text("Kaydet").removeClass('btn-success').addClass('btn-primary');
 			$("#txtName").val("");
-			$("#txtEmail").val("");
 			$("#txtTitle").val("");
-			$("#txtContent").val("");
+			$("#txtIcon").val("");
 
 			$("#modal").modal('show');
 
 			$("#btnSave").off().click(function () {
 				var veri = {
 					name: $("#txtName").val(),
-					email: $("#txtEmail").val(),
 					title: $("#txtTitle").val(),
-					content: $("#txtContent").val()
+					image: $("#txtIcon").val()
 				};
 
 				$.ajax({
 					type: 'POST',
-					url: '/Admin/Message/MessageAdd',
+					url: '/Admin/Portfolio/WorkAdd',
 					data: veri,
 					success: function (res) {
 						$("#modal").modal('hide');
 						$("#txtName").val("");
-						$("#txtEmail").val("");
 						$("#txtTitle").val("");
-						$("#txtContent").val("");
+						$("#txtIcon").val("");
 						dataTable.ajax.reload();
 					},
 					error: function (error) {
 						Swal.fire(
 							'Hata!',
-							'Mesaj gönderme işlemi başarısız oldu. Hata: ' + error.statusText,
+							'Proje ekleme işlemi başarısız oldu. Hata: ' + error.statusText,
 							'error'
 						);
 					}
@@ -120,32 +113,31 @@
 			});
 		});
 
-		var dataTable = $('#messageTable').DataTable({
+		var dataTable = $('#workTable').DataTable({
 			ajax: {
-				url: '/Admin/Message/GetAll',
+				url: '/Admin/Portfolio/GetAll',
 				dataSrc: ''
 			},
 			columns: [
 				{ data: 'id' },
 				{ data: 'name' },
-				{ data: 'email' },
 				{ data: 'title' },
-				{ data: 'content' },
+				{ data: 'image' },
 				{ data: 'dataCreated' },
 				{
 					data: null,
 					render: function (data, type, row) {
-						return `<a href="#" onclick="deleteMessage(${row.id})" class="btn btn-sm btn-danger">Sil</a>
-																<a href="#" onclick="editMessage(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+						return `<a href="#" onclick="deleteWork(${row.id})" class="btn btn-sm btn-danger">Sil</a>
+																								<a href="#" onclick="editMessage(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
 					}
 				}
 			]
 		});
 
-		function deleteMessage(messageId) {
+		function deleteWork(workId) {
 			Swal.fire({
 				title: 'Silmek istediğinize emin misiniz?',
-				text: "Mesaj Silinecek",
+				text: "Proje Silinecek",
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',
@@ -154,12 +146,12 @@
 			}).then((result) => {
 				if (result.isConfirmed) {
 					$.ajax({
-						url: '/Admin/Message/MessageDelete/' + messageId,
+						url: '/Admin/Portfolio/WorkDelete/' + workId,
 						method: 'POST',
 						success: function () {
 							Swal.fire(
 								'Başarılı!',
-								'Kategori silindi.',
+								'Proje silindi.',
 								'success'
 							);
 							dataTable.ajax.reload();
@@ -167,7 +159,7 @@
 						error: function () {
 							Swal.fire(
 								'Hata!',
-								'Kategori silinemedi.',
+								'Proje silinemedi.',
 								'error'
 							);
 						}
@@ -177,3 +169,4 @@
 		}
 	});
 </script>
+
