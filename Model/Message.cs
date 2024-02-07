@@ -8,7 +8,7 @@ namespace Models
 {
 	public class Message : BaseModel
 	{
-		public string Mail { get; set; }
+		public string Email { get; set; }
 		public string Content { get; set; }
 		public string Title { get; set; }
 	}

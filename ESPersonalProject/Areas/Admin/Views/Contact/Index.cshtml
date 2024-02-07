@@ -6,7 +6,7 @@
 <div>
 	<div class="card">
 		<div class="card-header text-white bg-danger bg-gradient">
-			<span class="fs-4">İletişim Bölümü</span>
+			<span class="fs-4">İletişim</span>
 			<a href="#" id="btnEkle" class="btn btn-warning ms-2">İletişim Ekle</a>
 		</div>
 		<div class="card-body">
@@ -14,13 +14,13 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Name</th>
+						<th>Ad Soyad</th>
+						<th>Adres</th>
+						<th>Email</th>
 						<th>Açıklama</th>
 						<th>Telefon</th>
-						<th>Email</th>
-						<th>Adres</th>
-						<th>Kayıt Tarihi</th>
-						<th>İşlemler </th>
+						<th>Oluşturulma Tarihi</th>
+						<th>İşlemler</th>
 					</tr>
 				</thead>
 			</table>
@@ -67,6 +67,8 @@
 		</div>
 	</div>
 </div>
+
+<!-- jQuery (en az 3.3.1 sürümü) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
@@ -75,8 +77,10 @@
 <!-- DataTables (1.13.7 sürümü) -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
 
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Bootstrap JS (uygun sürümü ekleyin) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
 	$(document).ready(function () {
@@ -134,16 +138,16 @@
 			columns: [
 				{ data: 'id' },
 				{ data: 'name' },
-				{ data: 'description' },
 				{ data: 'address' },
-				{ data: 'phone' },
 				{ data: 'email' },
+				{ data: 'description' },
+				{ data: 'phone' },
 				{ data: 'dataCreated' },
 				{
 					data: null,
 					render: function (data, type, row) {
 						return `<a href="#" onclick="deleteContact(${row.id})" class="btn btn-sm btn-danger">Sil</a>
-																<a href="#" onclick="editContact(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+																					<a href="#" onclick="editContact(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
 					}
 				}
 			]
