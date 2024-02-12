@@ -14,12 +14,15 @@ public class DefaultController : Controller
 		return PartialView();
 	}
 
-	public PartialViewResult HeroSectionPartial()
+	public PartialViewResult FooterPartial()
 	{
 		return PartialView();
 	}
-
-	public PartialViewResult FooterPartial()
+	public PartialViewResult LoaderPartial()
+	{
+		return PartialView();
+	}
+	public  PartialViewResult MenuPartial()
 	{
 		return PartialView();
 	}
