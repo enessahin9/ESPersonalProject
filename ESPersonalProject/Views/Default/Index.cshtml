@@ -1,308 +1,266 @@
 ﻿@{
 	Layout = null;
 }
-
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="en" dir="ltr">
+<!--Head Alanı-->
 @await Html.PartialAsync("HeadPartial")
 
-<body>
+<body class="overflow-hidden dark">
 
-	<!-- ======= Header ======= -->
-	<header id="header" class="fixed-top">
-		<div class="container d-flex align-items-center justify-content-between">
+	<!-- Loader Start -->
+	@await Html.PartialAsync("LoaderPartial")
+	<!-- Loader End -->
+	<!-- Navigation Start -->
+	@await Html.PartialAsync("MenuPartial")
+	<!-- Navigation End -->
+	<!-- Header Start -->
+	<header id="header" class="header transparent">
+		<div class="header__content">
 
-			<h1 class="logo"><a href="index.html">DevFolio</a></h1>
-			<!-- Uncomment below if you prefer to use an image logo -->
-			<!-- <a href="index.html" class="logo"><img src="~/esfront/assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-			<nav id="navbar" class="navbar">
-				<ul>
-					<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-					<li><a class="nav-link scrollto" href="#about">About</a></li>
-					<li><a class="nav-link scrollto" href="#services">Services</a></li>
-					<li><a class="nav-link scrollto " href="#work">Work</a></li>
-					<li><a class="nav-link scrollto " href="#blog">Blog</a></li>
-					<li class="dropdown">
-						<a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-						<ul>
-							<li><a href="#">Drop Down 1</a></li>
-							<li class="dropdown">
-								<a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-								<ul>
-									<li><a href="#">Deep Drop Down 1</a></li>
-									<li><a href="#">Deep Drop Down 2</a></li>
-									<li><a href="#">Deep Drop Down 3</a></li>
-									<li><a href="#">Deep Drop Down 4</a></li>
-									<li><a href="#">Deep Drop Down 5</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Drop Down 2</a></li>
-							<li><a href="#">Drop Down 3</a></li>
-							<li><a href="#">Drop Down 4</a></li>
-						</ul>
-					</li>
-					<li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-				</ul>
-				<i class="bi bi-list mobile-nav-toggle"></i>
-			</nav><!-- .navbar -->
+			<!-- Logo Start -->
+			<div class="logo">
+				<!-- Your Logo Here -->
+				<img src="~/allurio/HTML/assets/img/logo-light.svg" alt="Allurio - Coming Soon & Portfolio Template">
+			</div>
+			<!-- Logo End -->
+			<!-- Menu Trigger Start -->
+			<div class="menu-button">
+				<a href="#0" id="menu-trigger" class="menu-trigger">
+					<span class="menu-caption">Menu</span>
+					<span class="menu-burger"></span>
+				</a>
+			</div>
+			<!-- Menu Trigger End -->
 
 		</div>
-	</header><!-- End Header -->
-	<!-- ======= Hero Section ======= -->
-	@await Html.PartialAsync("HeroSectionPartial")
-	<!-- End Hero Section -->
+	</header>
+	<!-- Header End -->
+	<!-- Main Section Start -->
+	<section id="main" class="main">
 
-	<main id="main">
+		<!-- Main Section Content Start -->
+		<div class="main__content">
+			<div class="container-fluid p-0 fullheight-mobile">
+				<div class="row g-0 fullheight-mobile">
 
-		<!-- ======= About Section ======= -->
-		@await Component.InvokeAsync("AboutList")
-		<!-- End About Section -->
-		<!-- ======= Services Section ======= -->
-		@await Component.InvokeAsync("ServiceList")
-		<!-- End Services Section -->
-		<!-- ======= Counter Section ======= -->
-		<div class="section-counter paralax-mf bg-image" style="background-image: url(~/esfront/assets/img/counters-bg.jpg)">
-			<div class="overlay-mf"></div>
-			<div class="container position-relative">
-				<div class="row">
-					<div class="col-sm-3 col-lg-3">
-						<div class="counter-box counter-box pt-4 pt-md-0">
-							<div class="counter-ico">
-								<span class="ico-circle"><i class="bi bi-check"></i></span>
-							</div>
-							<div class="counter-num">
-								<p data-purecounter-start="0" data-purecounter-end="450" data-purecounter-duration="1" class="counter purecounter"></p>
-								<span class="counter-text">WORKS COMPLETED</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 col-lg-3">
-						<div class="counter-box pt-4 pt-md-0">
-							<div class="counter-ico">
-								<span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
-							</div>
-							<div class="counter-num">
-								<p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="counter purecounter"></p>
-								<span class="counter-text">YEARS OF EXPERIENCE</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 col-lg-3">
-						<div class="counter-box pt-4 pt-md-0">
-							<div class="counter-ico">
-								<span class="ico-circle"><i class="bi bi-people"></i></span>
-							</div>
-							<div class="counter-num">
-								<p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1" class="counter purecounter"></p>
-								<span class="counter-text">TOTAL CLIENTS</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3 col-lg-3">
-						<div class="counter-box pt-4 pt-md-0">
-							<div class="counter-ico">
-								<span class="ico-circle"><i class="bi bi-award"></i></span>
-							</div>
-							<div class="counter-num">
-								<p data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1" class="counter purecounter"></p>
-								<span class="counter-text">AWARD WON</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!-- End Counter Section -->
-		<!-- ======= Portfolio Section ======= -->
-		@await Component.InvokeAsync("PortfolioList")
-		<!-- End Portfolio Section -->
-		<!-- ======= Testimonials Section ======= -->
-		<div class="testimonials paralax-mf bg-image" style="background-image: url(~/esfront/assets/img/overlay-bg.jpg)">
-			<div class="overlay-mf"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
+					<!-- Main Section Intro Start -->
+					<div class="col-12 main__intro">
 
-						<div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-							<div class="swiper-wrapper">
+						<!-- Intro Content Start -->
+						<div class="intro__content">
 
-								<div class="swiper-slide">
-									<div class="testimonial-box">
-										<div class="author-test">
-											<img src="~/esfront/assets/img/testimonial-2.jpg" alt="" class="rounded-circle b-shadow-a">
-											<span class="author">Xavi Alonso</span>
-										</div>
-										<div class="content-test">
-											<p class="description lead">
-												Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-												consectetur adipiscing elit.
-											</p>
-										</div>
-									</div>
-								</div><!-- End testimonial item -->
-
-								<div class="swiper-slide">
-									<div class="testimonial-box">
-										<div class="author-test">
-											<img src="~/esfront/assets/img/testimonial-4.jpg" alt="" class="rounded-circle b-shadow-a">
-											<span class="author">Marta Socrate</span>
-										</div>
-										<div class="content-test">
-											<p class="description lead">
-												Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-												consectetur adipiscing elit.
-											</p>
-										</div>
-									</div>
-								</div><!-- End testimonial item -->
-							</div>
-							<div class="swiper-pagination"></div>
-						</div>
-
-						<!-- <div id="testimonial-mf" class="owl-carousel owl-theme">
-
-						</div> -->
-					</div>
-				</div>
-			</div>
-		</div><!-- End Testimonials Section -->
-		<!-- ======= Blog Section ======= -->
-		<section id="blog" class="blog-mf sect-pt4 route">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="title-box text-center">
-							<h3 class="title-a">
-								Blog
-							</h3>
-							<p class="subtitle-a">
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-							</p>
-							<div class="line-mf"></div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="card card-blog">
-							<div class="card-img">
-								<a href="blog-single.html"><img src="~/esfront/assets/img/post-1.jpg" alt="" class="img-fluid"></a>
-							</div>
-							<div class="card-body">
-								<div class="card-category-box">
-									<div class="card-category">
-										<h6 class="category">Travel</h6>
-									</div>
-								</div>
-								<h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-								<p class="card-description">
-									Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-									a pellentesque nec,
-									egestas non nisi.
-								</p>
-							</div>
-							<div class="card-footer">
-								<div class="post-author">
-									<a href="#">
-										<img src="~/esfront/assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-										<span class="author">Morgan Freeman</span>
+							<!-- Headline Start -->
+							<div id="headline" class="headline bottom column">
+								<h1 class="headline__animate large text-light">Nice to meet you</h1>
+								<div class="headline__btnholder bottom">
+									<a href="#0" id="notify-trigger" class="btn btn-s btn-s-light">
+										<span class="btn-caption">Subscribe</span>
+										<span class="icon ion-ios-arrow-right"></span>
+									</a>
+									<a href="#about" class="btn btn-s btn-s-light">
+										<span class="btn-caption">Explore</span>
+										<span class="icon ion-ios-arrow-down"></span>
 									</a>
 								</div>
-								<div class="post-date">
-									<span class="bi bi-clock"></span> 10 min
-								</div>
 							</div>
+							<!-- Headline End -->
+
 						</div>
+						<!-- Intro Content End -->
+
 					</div>
-					<div class="col-md-4">
-						<div class="card card-blog">
-							<div class="card-img">
-								<a href="blog-single.html"><img src="~/esfront/assets/img/post-2.jpg" alt="" class="img-fluid"></a>
+					<!-- Main Section Intro End -->
+					<!-- Main Section Media Start -->
+					<div class="col-12 main__media">
+
+						<!-- Media Content Start -->
+						<div class="media__content fullscreen">
+
+							<!-- Main Section Image & Background Effect Start -->
+							<div class="media__image media-image-fullscreen-2">
+
+								<!-- Color Layer Start -->
+								<div class="color-layer color-layer-black-04"></div>
+								<!-- Color Layer End -->
+								<!-- Background Effect Start -->
+								<div id="particles-js"></div>
+								<!-- Background Effect End -->
+
 							</div>
-							<div class="card-body">
-								<div class="card-category-box">
-									<div class="card-category">
-										<h6 class="category">Web Design</h6>
-									</div>
-								</div>
-								<h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-								<p class="card-description">
-									Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-									a pellentesque nec,
-									egestas non nisi.
-								</p>
-							</div>
-							<div class="card-footer">
-								<div class="post-author">
-									<a href="#">
-										<img src="~/esfront/assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-										<span class="author">Morgan Freeman</span>
-									</a>
-								</div>
-								<div class="post-date">
-									<span class="bi bi-clock"></span> 10 min
-								</div>
-							</div>
+							<!-- Main Section Image & Background Effect End -->
+
 						</div>
+						<!-- Media Content End -->
+
 					</div>
-					<div class="col-md-4">
-						<div class="card card-blog">
-							<div class="card-img">
-								<a href="blog-single.html"><img src="~/esfront/assets/img/post-3.jpg" alt="" class="img-fluid"></a>
-							</div>
-							<div class="card-body">
-								<div class="card-category-box">
-									<div class="card-category">
-										<h6 class="category">Web Design</h6>
-									</div>
-								</div>
-								<h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-								<p class="card-description">
-									Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-									a pellentesque nec,
-									egestas non nisi.
-								</p>
-							</div>
-							<div class="card-footer">
-								<div class="post-author">
-									<a href="#">
-										<img src="~/esfront/assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-										<span class="author">Morgan Freeman</span>
-									</a>
-								</div>
-								<div class="post-date">
-									<span class="bi bi-clock"></span> 10 min
-								</div>
-							</div>
-						</div>
-					</div>
+					<!-- Main Section Media End -->
+
 				</div>
 			</div>
-		</section><!-- End Blog Section -->
-		<!-- ======= Contact Section ======= -->
-		@await Component.InvokeAsync("ContactList")
-		<!-- End Contact Section -->
+		</div>
+		<!-- Main Section Content End -->
 
-	</main><!-- End #main -->
-	<!-- ======= Footer ======= -->
+	</section>
+	<!-- Main Section End -->
+	<!-- About Section Start -->
+	@await Component.InvokeAsync("AboutList")
+	<!-- About Section End -->
+	<!-- Portfolio Section Start -->
+	@await Component.InvokeAsync("PortfolioList")
+	<!-- Portfolio Section End -->
+	<!-- Services Section Start -->
+	@await Component.InvokeAsync("ServiceList")
+	<!-- Services Section End -->
+	<!-- Contact Section Start -->
+	@await Component.InvokeAsync("ContactList")
+	<!-- Contact Section End -->
+	<!-- Footer Start -->
 	@await Html.PartialAsync("FooterPartial")
-	<!-- End  Footer -->
+	<!-- Footer End -->
+	<!-- To-top Button Start -->
+	<a href="#main" class="to-top">
+		<span class="icon ion-ios-arrow-up"></span>
+	</a>
+	<!-- To-top Button End -->
+	<!-- Notify Popup Start -->
+	<div id="notify" class="popup notify bg-dark">
 
-	<div id="preloader"></div>
-	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+		<!-- Popup Header Start -->
+		<div class="popup__header">
+			<div class="header-content">
 
-	<!-- Vendor JS Files -->
-	<script src="~/esfront/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-	<script src="~/esfront/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="~/esfront/assets/vendor/glightbox/js/glightbox.min.js"></script>
-	<script src="~/esfront/assets/vendor/swiper/swiper-bundle.min.js"></script>
-	<script src="~/esfront/assets/vendor/typed.js/typed.umd.js"></script>
-	<script src="~/esfront/assets/vendor/php-email-form/validate.js"></script>
+				<!-- Popup Close Button Start -->
+				<div class="close-button">
+					<a href="#0" id="notify-close" class="popup-close light">
+						<span class="close-caption">Close</span>
+						<span class="close-x"></span>
+					</a>
+				</div>
+				<!-- Popup Close Button End -->
 
-	<!-- Template Main JS File -->
-	<script src="~/esfront/assets/js/main.js"></script>
+			</div>
+		</div>
+		<!-- Popup Header End -->
+		<!-- Popup Content Start -->
+		<div class="popup__content">
+			<div class="container-fluid p-0 fullheight">
+				<div class="row g-0 justify-content-center fullheight">
+					<div class="col-12 col-md-8 col-lg-6 col-xl-5 fullheight">
+						<div class="popup-container">
+
+							<!-- Popup Title Start -->
+							<div class="popup-title column">
+								<p class="popup-title__title text-light">Get to know about our launch</p>
+								<p class="popup-title__text text-light-base">Subscribe to our newsletter and we will send you a notification about the launch of our brand new site.</p>
+							</div>
+							<!-- Popup Title End -->
+							<!-- Popup Form Start -->
+							<div class="popup-form column">
+								<div class="form-container">
+
+									<!-- Reply Messages Start-->
+									<div class="reply-group subscription-ok">
+										<p class="reply-group__title text-light">Done!</p>
+										<span class="reply-group__text text-light-base">Thanks for subscribing. We will send you a notification about the launch of our brand new website.</span>
+									</div>
+									<div class="reply-group subscription-error">
+										<p class="reply-group__title text-light">Ooops!</p>
+										<span class="reply-group__text text-light-base">Something went wrong. Please try again later.</span>
+									</div>
+									<!-- Reply Messages End-->
+									<!-- Notify Contact Form Start-->
+									<form class="form notify-form form-light">
+										<input class="" type="email" placeholder="Email Adress*" required>
+										<span class="inputs-description">*Required field</span>
+										<button class="btn btn-l btn-light" type="submit">Send</button>
+									</form>
+									<!-- Notify Contact Form End-->
+
+								</div>
+							</div>
+							<!-- Popup Form End -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Popup Content End -->
+
+	</div>
+	<!-- Notify Popup End -->
+	<!-- Root element of PhotoSwipe. Must have class pswp. -->
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+		<!-- Background of PhotoSwipe.
+		It's a separate element, as animating opacity is faster than rgba(). -->
+		<div class="pswp__bg"></div>
+
+		<!-- Slides wrapper with overflow:hidden. -->
+		<div class="pswp__scroll-wrap">
+
+			<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+			<!-- don't modify these 3 pswp__item elements, data is added later on. -->
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+
+			<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+			<div class="pswp__ui pswp__ui--hidden">
+
+				<div class="pswp__top-bar">
+
+					<!--  Controls are self-explanatory. Order can be changed. -->
+
+					<div class="pswp__counter"></div>
+
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+					<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+					<!-- element will get class pswp__preloader-active when preloader is running -->
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div>
+				</div>
+
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+				</button>
+
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+				</button>
+
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Load Scripts Start -->
+	<script src="~/allurio/HTML/assets/js/libs.min.js"></script>
+	<script src="~/allurio/HTML/assets/js/gallery-init.js"></script>
+	<script src="~/allurio/HTML/assets/js/custom.js"></script>
+	<!-- Load Scripts End -->
 
 </body>
 
