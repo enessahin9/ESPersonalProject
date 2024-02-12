@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\AllurioTemplete\**" />
+    <Content Remove="wwwroot\AllurioTemplete\**" />
+    <EmbeddedResource Remove="wwwroot\AllurioTemplete\**" />
+    <None Remove="wwwroot\AllurioTemplete\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\Minible\Admin\dist\assets\libs\datatables.net-autofill-bs4\node_modules\jquery\AUTHORS.txt" />
     <Content Include="wwwroot\Minible\Admin\dist\assets\libs\datatables.net-autofill-bs4\node_modules\jquery\external\sizzle\LICENSE.txt" />
     <Content Include="wwwroot\Minible\Admin\dist\assets\libs\datatables.net-autofill-bs4\node_modules\jquery\LICENSE.txt" />
@@ -58,6 +65,83 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\gmaakeupblog\assets\font-flaticon\flaticon.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\font-flaticon\flaticon.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\font-flaticon\flaticon.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\brands.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\duotone.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\fontawesome.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\light.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\regular.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\solid.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\v4-shims.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_animated.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_bordered-pulled.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_core.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_fixed-width.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_icons.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_larger.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_list.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_mixins.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_rotated-flipped.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_screen-reader.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_shims.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_stacked.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\less\_variables.less" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\metadata\categories.yml" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\metadata\icons.yml" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\metadata\shims.yml" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\metadata\sponsors.yml" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\scss\brands.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\scss\duotone.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\scss\fontawesome.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\scss\light.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\scss\regular.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\scss\solid.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\scss\v4-shims.scss" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-duotone-900.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-duotone-900.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-light-300.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-light-300.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fontawesome\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fonts\dripicons-v2.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fonts\fa-brands-400.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fonts\fa-regular-400.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\fonts\fa-solid-900.svg" />
+    <None Include="wwwroot\gmaakeupblog\assets\fonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\ajax-form.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\element-in-view.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\imagesloaded.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\jquery.counterup.min - Copy.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\jquery.counterup.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\jquery.magnific-popup.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\jquery.meanmenu.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\jquery.owl-filter.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\jquery.scrollUp.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\jquery.waypoints.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\js_isotope.pkgd.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\main.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\one-page-nav-min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\owl.carousel.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\parallax-scroll.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\parallax.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\paroller.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\particles.app.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\particles.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\popper.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\slick.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\typed.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\vendor\jquery-3.6.0.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\vendor\modernizr-3.5.0.min.js" />
+    <None Include="wwwroot\gmaakeupblog\assets\js\wow.min.js" />
     <None Include="wwwroot\Minible\Admin\dist\assets\libs\datatables.net-autofill-bs4\node_modules\jquery\external\sizzle\sizzle.min.js" />
     <None Include="wwwroot\Minible\Admin\dist\assets\libs\datatables.net-autofill-bs4\node_modules\jquery\jquery.min.js" />
     <None Include="wwwroot\Minible\Admin\dist\assets\libs\datatables.net-autofill-bs4\node_modules\jquery\jquery.slim.min.js" />
