@@ -3,87 +3,131 @@
 	Layout = null;
 }
 
-<section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(~/esfront/assets/img/overlay-bg.jpg)">
-	<div class="overlay-mf"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="contact-mf">
-					<div id="contact" class="box-shadow-full">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="title-box-2">
-									<h5 class="title-left">
-										Send Message Us
-									</h5>
-								</div>
-								<div>
-									<form action="forms/contact.php" method="post" role="form" class="php-email-form">
-										<div class="row">
-											<div class="col-md-12 mb-3">
-												<div class="form-group">
-													<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+<section id="contact" class="inner contact">
+
+	<!-- Section Info Start -->
+	<div class="inner__info bg-light">
+		<div class="info__wrapper">
+			<div class="container-fluid p-0">
+				<div class="row g-0">
+
+					<!-- Section Title Start -->
+					<div class="col-12 col-lg-1 info__title">
+						<div class="title-content column">
+							<span class="section-title text-dark">Contact</span>
+						</div>
+					</div>
+					<!-- Section Title End -->
+					<!-- Section Content Start -->
+					<div class="col-12 col-lg-11 info__content">
+						<div class="container-fluid p-0">
+							<div class="row g-0">
+
+								<!-- Content Block - Section Text - Start -->
+								<div class="col-12 col-lg-6 content-block mobile-margin">
+									<div class="column">
+										<h2 class="text-dark">Hello & welcome</h2>
+										<p class="section-text font-regular">
+											Phasellus vel ipsum vel orci egestas euismod at id turpis. Pellentesque accumsan turpis sit amet tellus ultrices, nec fermentum nibh pulvinar.
+											Sed ac diam turpis. Curabitur eget dui commodo, molestie ipsum nec, sodales arcu.
+										</p>
+
+										<!-- Contact Data Start -->
+										<div class="contact-data">
+											<div class="container-fluid p-0">
+												<div class="row g-0">
+													<!-- contact data single item -->
+													<div class="col-12 col-sm-6 contact-data__item">
+														<h5 class="text-dark">Location</h5>
+														<p class="font-regular">
+															11 West 53 Street
+															<br>New York, NY
+															<br>10019
+														</p>
+													</div>
+													<!-- contact data single item -->
+													<div class="col-12 col-sm-6 contact-data__item">
+														<h5 class="text-dark">Follow us</h5>
+														<ul>
+															<li>
+																<a class="font-regular" href="https://www.facebook.com/" target="_blank">Facebook</a>
+															</li>
+															<li>
+																<a class="font-regular" href="https://www.instagram.com/" target="_blank">Instagram</a>
+															</li>
+															<li>
+																<a class="font-regular" href="https://twitter.com/" target="_blank">Twitter</a>
+															</li>
+														</ul>
+													</div>
+													<!-- contact data single item -->
+													<div class="col-12 col-sm-6 contact-data__item">
+														<h5 class="text-dark">Phone</h5>
+														<p>
+															<a class="font-regular" href="tel:+12127089400">+1 212-708-9400</a>
+														</p>
+													</div>
+													<!-- contact data single item -->
+													<div class="col-12 col-sm-6 contact-data__item">
+														<h5 class="text-dark">Email</h5>
+														<p>
+															<a class="font-regular" href="mailto:example@example.com?subject=Message%20from%20your%20site">example@example.com</a>
+														</p>
+													</div>
 												</div>
-											</div>
-											<div class="col-md-12 mb-3">
-												<div class="form-group">
-													<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-												</div>
-											</div>
-											<div class="col-md-12 mb-3">
-												<div class="form-group">
-													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-												</div>
-											</div>
-											<div class="col-md-12 text-center my-3">
-												<div class="loading">Loading</div>
-												<div class="error-message"></div>
-												<div class="sent-message">Your message has been sent. Thank you!</div>
-											</div>
-											<div class="col-md-12 text-center">
-												<button type="submit" class="button button-a button-big button-rouded">Send Message</button>
 											</div>
 										</div>
-									</form>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="title-box-2 pt-4 pt-md-0">
-									<h5 class="title-left">
-										Get in Touch
-									</h5>
-								</div>
-								@foreach (var item in Model)
-								{
-									<div class="more-info">
-										<p class="lead">
-											@item.Description
-										</p>
-										<ul class="list-ico">
-											<li><span class="bi bi-geo-alt"></span>@item.Address</li>
-											<li><span class="bi bi-phone"></span>@item.Phone</li>
-											<li><span class="bi bi-envelope"></span>@item.Email</li>
-										</ul>
+										<!-- Contact Data End -->
+
 									</div>
-								}
-								<div class="socials">
-									<ul>
-										<li><a href=""><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
-										<li><a href=""><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
-										<li><a href=""><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
-										<li><a href=""><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
-									</ul>
 								</div>
+								<!-- Content Block - Section Text - End -->
+								<!-- Content Block - Features - Start -->
+								<div class="col-12 col-lg-6 content-block">
+									<div class="column">
+										<h2 class="text-dark">Get in touch</h2>
+										<p class="section-text font-regular">Want to know more about us, tell us about your project or just to say hello? Drop us a line and we will get back as soon as possible.</p>
+
+										<!-- Contact Form Container Start -->
+										<div class="form-container">
+
+											<!-- Contact Form Reply Group Start -->
+											<div class="reply-group">
+												<p class="reply-group__title text-dark">Done!</p>
+												<span class="reply-group__text text-base font-regular">Thanks for your message.<br>We will get back as soon as possible.</span>
+											</div>
+											<!-- Contact Form Reply Group End -->
+											<!-- Contact Form Start -->
+											<form class="form contact-form form-dark" id="contact-form">
+												<!-- Hidden Required Fields -->
+												<input type="hidden" name="project_name" value="Allurio - Coming Soon & Portfolio Template">
+												<input type="hidden" name="admin_email" value="example@yourdomain.com">
+												<input type="hidden" name="form_subject" value="Contact Form Message">
+												<!-- END Hidden Required Fields-->
+												<input class="" type="text" name="Name" placeholder="Your Name*" required>
+												<input class="" type="email" name="E-mail" placeholder="Email Adress*" required>
+												<textarea class="" name="Message" placeholder="A Few Words*" required></textarea>
+												<span class="inputs-description">*Required fields</span>
+												<button class="btn btn-l btn-dark">Send</button>
+											</form>
+											<!-- Contact Form End  -->
+
+										</div>
+										<!-- Contact Form Container End -->
+
+									</div>
+								</div>
+								<!-- Content Block - Features - End -->
+
 							</div>
 						</div>
 					</div>
+					<!-- Section Content End -->
+
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Section Info End -->
+
 </section>
