@@ -2,6 +2,9 @@
 using Business.Service;
 using DataLayer.Abstract;
 using DataLayer.EntityFramework;
+using DataLayers.Abstract;
+using DataLayers.EntityFramework;
+using Helper;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -36,6 +39,17 @@ namespace Bussines.Container
 
 			services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 			services.AddScoped<ISocialMediaService, SocialMediaManager>();
-		}
+
+
+			services.AddScoped<IBlogCategoryDal, EfBlogCategoryDal>();
+			services.AddScoped<IBlogCategoryService, BlogCategoryManager>();
+
+			services.AddScoped<IBlogDetailDal, EfBlogDetailDal>();
+			services.AddScoped<IBlogDetailService, BlogDetailManager>();
+
+            services.AddSingleton<FileUpload>();
+
+
+        }
 	}
 }
