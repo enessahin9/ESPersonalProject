@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.EntityFramework
+namespace DataLayer.EntityFramework;
+
+public class EfWorkDal : GenericRepository<Portfolio>, IWorkDal
 {
-	public class EfWorkDal : GenericRepository<Portfolio>, IWorkDal
+	public EfWorkDal(AppDbContext appDbContext) : base(appDbContext)
 	{
-		public EfWorkDal(AppDbContext appDbContext) : base(appDbContext)
-		{
-		}
 	}
 }

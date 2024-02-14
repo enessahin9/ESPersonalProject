@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.EntityFramework
+namespace DataLayer.EntityFramework;
+
+public class EfAboutDal : GenericRepository<About>, IAboutDal
 {
-	public class EfAboutDal : GenericRepository<About>, IAboutDal
+	public EfAboutDal(AppDbContext appDbContext) : base(appDbContext)
 	{
-		public EfAboutDal(AppDbContext appDbContext) : base(appDbContext)
-		{
-		}
 	}
 }

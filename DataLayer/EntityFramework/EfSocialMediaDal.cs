@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.EntityFramework
+namespace DataLayer.EntityFramework;
+
+public class EfSocialMediaDal : GenericRepository<SocialMedia>, ISocialMediaDal
 {
-	public class EfSocialMediaDal : GenericRepository<SocialMedia>, ISocialMediaDal
+	public EfSocialMediaDal(AppDbContext appDbContext) : base(appDbContext)
 	{
-		public EfSocialMediaDal(AppDbContext appDbContext) : base(appDbContext)
-		{
-		}
 	}
 }

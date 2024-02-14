@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.EntityFramework
+namespace DataLayer.EntityFramework;
+
+public class EfMessageDal : GenericRepository<Message>, IMessageDal
 {
-	public class EfMessageDal : GenericRepository<Message>, IMessageDal
+	public EfMessageDal(AppDbContext appDbContext) : base(appDbContext)
 	{
-		public EfMessageDal(AppDbContext appDbContext) : base(appDbContext)
-		{
-		}
 	}
 }

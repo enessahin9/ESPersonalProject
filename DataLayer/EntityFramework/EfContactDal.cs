@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.EntityFramework
+namespace DataLayer.EntityFramework;
+
+public class EfContactDal : GenericRepository<Contact>, IContactDal
 {
-	public class EfContactDal : GenericRepository<Contact>, IContactDal
+	public EfContactDal(AppDbContext appDbContext) : base(appDbContext)
 	{
-		public EfContactDal(AppDbContext appDbContext) : base(appDbContext)
-		{
-		}
 	}
 }

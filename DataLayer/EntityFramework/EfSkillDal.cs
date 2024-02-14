@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.EntityFramework
+namespace DataLayer.EntityFramework;
+
+public class EfSkillDal : GenericRepository<Skill>, ISkillDal
 {
-	public class EfSkillDal : GenericRepository<Skill>, ISkillDal
+	public EfSkillDal(AppDbContext appDbContext) : base(appDbContext)
 	{
-		public EfSkillDal(AppDbContext appDbContext) : base(appDbContext)
-		{
-		}
 	}
 }
