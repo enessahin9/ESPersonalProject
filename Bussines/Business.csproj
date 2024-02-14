@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayers.csproj" />
+    <ProjectReference Include="..\Helper\Helper.csproj" />
     <ProjectReference Include="..\Model\Models.csproj" />
   </ItemGroup>
 
