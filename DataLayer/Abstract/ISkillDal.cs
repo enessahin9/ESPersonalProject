@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.Abstract
+namespace DataLayer.Abstract;
+
+public interface ISkillDal : IGenericDal<Skill>
 {
-	public interface ISkillDal : IGenericDal<Skill>
-	{
-	}
 }

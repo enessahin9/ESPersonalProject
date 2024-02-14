@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.Abstract
+namespace DataLayer.Abstract;
+
+public interface IWorkDal : IGenericDal<Portfolio>
 {
-	public interface IWorkDal : IGenericDal<Portfolio>
-	{
-	}
 }

@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 // Ortak kullanılacak oldugum crud islemleri icin generic interface olusturuldu.
 
-namespace DataLayer.Abstract
+namespace DataLayer.Abstract;
+
+public interface IGenericDal<T> where T : class
 {
-	public interface IGenericDal<T> where T : class
-	{
-		void Add(T t);
-		void Delete(T t);
-		void Update(T t);
-		List<T> GetList();
-		T GetById(int id);
-	}
+	void Add(T t);
+	void Delete(T t);
+	void Update(T t);
+	List<T> GetList();
+	T GetById(int id);
 }
