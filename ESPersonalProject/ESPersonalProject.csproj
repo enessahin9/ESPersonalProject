@@ -209,6 +209,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Bussines\Business.csproj" />
     <ProjectReference Include="..\DataLayer\DataLayers.csproj" />
+    <ProjectReference Include="..\Helper\Helper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

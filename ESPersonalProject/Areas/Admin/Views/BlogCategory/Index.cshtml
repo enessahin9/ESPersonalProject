@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-header text-white bg-danger bg-gradient">
+			<span class="fs-4">Projeler</span>
+			<a href="#" id="btnEkle" class="btn btn-warning ms-2">Yeni Blog Kategori Ekle</a>
+		</div>
+		<div class="card-body">
+			<table id="serviceTable" class="table table-bordered table-striped" style="width:100%">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Kategori Adı</th>
+					
+						<th>Oluşturulma Tarihi</th>
+						<th>İşlemler</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+	 aria-labelledby="modalTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalTitle">Yeni Kategori Ekle</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<div class="mb-3">
+						<label class="form-label">Kategori Adı</label>
+						<input type="text" id="txtName" class="form-control">
+					</div>
+			
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+				<a href="#" id="btnSave" class="btn btn-primary">Gönder</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- jQuery (en az 3.3.1 sürümü) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- DataTables (1.13.7 sürümü) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Bootstrap JS (uygun sürümü ekleyin) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script>
+	$(document).ready(function () {
+		$("#btnEkle").click(function () {
+			$("#modalTitle").text("Yeni Blog Oluştur");
+			$("#btnSave").text("Kaydet").removeClass('btn-success').addClass('btn-primary');
+			$("#txtName").val("");
+			
+
+			$("#modal").modal('show');
+
+			$("#btnSave").off().click(function () {
+				var veri = {
+					name: $("#txtName").val(),
+	
+		
+				};
+
+				$.ajax({
+					type: 'POST',
+					url: '/Admin/BlogCategory/AddBlog',
+					data: veri,
+					success: function (res) {
+						$("#modal").modal('hide');
+						$("#txtName").val("");
+					
+						dataTable.ajax.reload();
+					},
+					error: function (error) {
+						Swal.fire(
+							'Hata!',
+							'Proje ekleme işlemi başarısız oldu. Hata: ' + error.statusText,
+							'error'
+						);
+					}
+				});
+			});
+		});
+
+		var dataTable = $('#serviceTable').DataTable({
+			ajax: {
+				url: '/Admin/BlogCategory/GetAll',
+				dataSrc: ''
+			},
+			columns: [
+				{ data: 'id' },
+				{ data: 'name' },
+				
+				{ data: 'dataCreated' },
+				{
+					data: null,
+					render: function (data, type, row) {
+						return `<a href="#" onclick="DeleteBlogCategory(${row.id})" class="btn btn-sm btn-danger">Sil</a>
+						<a href="#" onclick="editMessage(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+					}
+				}
+			]
+		});
+
+		function DeleteBlogCategory (id) {
+			Swal.fire({
+				title: 'Silmek istediğinize emin misiniz?',
+				text: "Hizmet Silinecek",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Sil!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					$.ajax({
+						url: '/Admin/BlogCategory/DeleteBC' + id,
+						method: 'POST',
+						success: function () {
+							Swal.fire(
+								'Başarılı!',
+								'Kategori silindi.',
+								'success'
+							);
+							dataTable.ajax.reload();
+						},
+						error: function () {
+							Swal.fire(
+								'Hata!',
+								'Kategori silinemedi.',
+								'error'
+							);
+						}
+					});
+				}
+			});
+		}
+
+	});
+</script>
