@@ -362,4 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /ESPersonalProject/appsettings.json
-/ESPersonalProject/wwwroot/Minible
+/ESPersonalProject/wwwroot
+/ESPersonalProject/ESPersonalProject.csproj

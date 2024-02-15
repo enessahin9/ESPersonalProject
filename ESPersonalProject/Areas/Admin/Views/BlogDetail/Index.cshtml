@@ -1,0 +1,113 @@
+﻿@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div>
+	<div class="card">
+		<div class="card-header text-white bg-danger bg-gradient">
+			<span class="fs-4">Blog Detayları</span>
+			<a href="#" id="btnEkle" class="btn btn-warning ms-2">Blog Ekle</a>
+		</div>
+		<div class="card-body">
+			<table id="blogTable" class="table table-bordered table-striped" style="width:100%">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Kategori</th>
+						<th>Açıklama 1</th>
+						<th>Açıklama 2</th>
+						<th>Açıklama 3</th>
+						<th>Görsel 1</th>
+						<th>Görsel 2</th>
+						<th>Görsel 3</th>
+						<th>Oluşturulma Tarihi</th>
+						<th>İşlemler</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- jQuery (en az 3.3.1 sürümü) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- DataTables (1.13.7 sürümü) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Bootstrap JS (uygun sürümü ekleyin) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script>
+	$(document).ready(function () {
+		var dataTable = $('#blogTable').DataTable({
+			ajax: {
+				url: '/Admin/BlogDetail/GetAll',
+				dataSrc: ''
+			},
+			columns: [
+				{ data: 'id' },
+				{ data: 'name' },
+				{ data: 'description' },
+				{ data: 'description2' },
+				{ data: 'description3' },
+				{ data: 'imageUrl' },
+				{ data: 'imageUrl2' },
+				{ data: 'imageUrl3' },
+				{ data: 'dataCreated' },
+				{
+					data: null,
+					render: function (data, type, row) {
+						return `<a href="#" onclick="deleteBlogList(${row.id})" class="btn btn-sm btn-danger">Sil</a>
+																		<a href="#" onclick="editAbout(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+					}
+				}
+			]
+		});
+	});
+
+	function deleteAbout(aboutId) {
+		Swal.fire({
+			title: 'Silmek istediğinize emin misiniz?',
+			text: "Blog Silinecek",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Sil!'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				$.ajax({
+					url: '/Admin/About/DeleteBC/' + aboutId,
+					method: 'POST',
+					success: function () {
+						Swal.fire(
+							'Başarılı!',
+							'Kategori silindi.',
+							'success'
+						);
+						dataTable.ajax.reload();
+					},
+					error: function () {
+						Swal.fire(
+							'Hata!',
+							'Kategori silinemedi.',
+							'error'
+						);
+					}
+				});
+			}
+		});
+	}
+
+
+
+</script>

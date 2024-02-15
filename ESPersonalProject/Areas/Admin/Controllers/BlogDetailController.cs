@@ -9,9 +9,9 @@ namespace ESPersonalProject.Areas.Admin.Controllers
 	public class BlogDetailController : Controller
 	{
 		private readonly IBlogDetailService _blogDetailService;
-        private readonly FileUpload _fileUpload;
+		private readonly FileUpload _fileUpload;
 
-        public BlogDetailController(IBlogDetailService blogDetailService ,FileUpload fileUpload)
+		public BlogDetailController(IBlogDetailService blogDetailService, FileUpload fileUpload)
 		{
 			_blogDetailService = blogDetailService;
 			_fileUpload = fileUpload;
@@ -23,7 +23,7 @@ namespace ESPersonalProject.Areas.Admin.Controllers
 		}
 		public IActionResult GetALl()
 		{
-			
+
 			return View(_blogDetailService.TGetList());
 		}
 		[HttpGet]
@@ -31,23 +31,30 @@ namespace ESPersonalProject.Areas.Admin.Controllers
 		{
 			return View();
 		}
-        [HttpPost]
-        public IActionResult AddBlogDetail(BlogDetail blogDetail, IFormFile ImageUrl, IFormFile ImageUrl2, IFormFile ImageUrl3, IFormFile ImageUrl4)
-        {
+		[HttpPost]
+		public IActionResult AddBlogDetail(BlogDetail blogDetail, IFormFile ImageUrl, IFormFile ImageUrl2, IFormFile ImageUrl3, IFormFile ImageUrl4)
+		{
 
-            var uploadedImageUrl = FileUpload.UploadFile(ImageUrl);
-            var uploadedImageUrl2 = FileUpload.UploadFile(ImageUrl2);
-            var uploadedImageUrl3 = FileUpload.UploadFile(ImageUrl3);
-            var uploadedImageUrl4 = FileUpload.UploadFile(ImageUrl4);
-            blogDetail.ImageUrl = uploadedImageUrl;
-            blogDetail.ImageUrl2 = uploadedImageUrl2;
-            blogDetail.ImageUrl3 = uploadedImageUrl3;
-           
+			var uploadedImageUrl = FileUpload.UploadFile(ImageUrl);
+			var uploadedImageUrl2 = FileUpload.UploadFile(ImageUrl2);
+			var uploadedImageUrl3 = FileUpload.UploadFile(ImageUrl3);
+			var uploadedImageUrl4 = FileUpload.UploadFile(ImageUrl4);
+			blogDetail.ImageUrl = uploadedImageUrl;
+			blogDetail.ImageUrl2 = uploadedImageUrl2;
+			blogDetail.ImageUrl3 = uploadedImageUrl3;
 
 
-            _blogDetailService.TAdd(blogDetail);
 
-            return RedirectToAction("Index");
-        }
-    }
+			_blogDetailService.TAdd(blogDetail);
+
+			return RedirectToAction("Index");
+		}
+
+		public IActionResult BlogDelete()
+		{
+			var result = _blogDetailService.TDelete(id);
+			_blogDetailService.TDelete(result);
+			return View(result);
+		}
+	}
 }
