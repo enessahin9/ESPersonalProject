@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-	public class AppDbContext : DbContext
+	public class AppDbContext : IdentityDbContext<AppUser, AppRole, int>
 	{
 		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 		public DbSet<About> Abouts { get; set; }
@@ -20,5 +21,6 @@ namespace DataLayer
 		public DbSet<Portfolio> Works { get; set; }
         public DbSet<BlogCategory> BlogCategories { get; set; }
         public DbSet<BlogDetail> BlogDetails { get; set; }
+    
     }
 }
