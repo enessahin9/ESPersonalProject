@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ESPersonalProject.Controllers;
-
+[AllowAnonymous] //Loginden etkilenme 
 public class DefaultController : Controller
 {
 	public IActionResult Index()

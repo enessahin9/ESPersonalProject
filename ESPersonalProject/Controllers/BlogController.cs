@@ -2,6 +2,7 @@
 
 namespace ESPersonalProject.Controllers
 {
+
 	public class BlogController : Controller
 	{
 		public IActionResult Index()
