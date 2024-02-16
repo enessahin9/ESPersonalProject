@@ -13,7 +13,6 @@ namespace Models
 		public string? Description3 { get; set;}
         public string ImageUrl { get; set; }
         public string? ImageUrl2 { get; set; }
-
 		public string? ImageUrl3 { get; set;}
         public string? Tags { get; set; }
 		public ICollection<BlogCategory> BlogCategories { get; set; }
