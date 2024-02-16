@@ -21,10 +21,10 @@ namespace ESPersonalProject.Areas.Admin.Controllers
 		{
 			return View();
 		}
-		public IActionResult GetALl()
+		public IActionResult GetAll()
 		{
-
-			return View(_blogDetailService.TGetList());
+			var values = _blogDetailService.TGetList();
+			return Json(values);
 		}
 		[HttpGet]
 		public IActionResult AddBlogDetail()
@@ -50,9 +50,9 @@ namespace ESPersonalProject.Areas.Admin.Controllers
 			return RedirectToAction("Index");
 		}
 
-		public IActionResult BlogDelete()
+		public IActionResult BlogDelete(int id)
 		{
-			var result = _blogDetailService.TDelete(id);
+			var result = _blogDetailService.TGetById(id);
 			_blogDetailService.TDelete(result);
 			return View(result);
 		}
