@@ -3,92 +3,22 @@
 	Layout = null;
 }
 
-<section id="services" class="inner services">
+<div class="services scale-animation" data-delay="1.3">
+	<div class="spacer-45"></div>
+	<div class="spacer-45"></div>
+	<h5 class="underline-title">What i do</h5>
 
-	<!-- Section Info Start -->
-	<div class="inner__info bg-dark">
-		<div class="info__wrapper">
-			<div class="container-fluid p-0">
-				<div class="row g-0">
-
-					<!-- Section Title Start -->
-					<div class="col-12 col-lg-1 info__title">
-						<div class="title-content column">
-							<span class="section-title text-light">Services</span>
-						</div>
-					</div>
-					<!-- Section Title End -->
-					<!-- Section Content Start -->
-					<div class="col-12 col-lg-11 info__content">
-						<div class="container-fluid p-0">
-							<div class="row g-0">
-
-								<!-- Content Block - Section Text - Start -->
-								<div class="col-12 col-lg-6 content-block">
-									<div class="column">
-										<h2 class="text-light">Creating unique stuff</h2>
-										<p class="section-text text-light-base">
-											Phasellus vel ipsum vel orci egestas euismod at id turpis. Pellentesque accumsan turpis sit amet tellus ultrices, nec fermentum nibh pulvinar. Sed ac diam turpis.
-											Curabitur eget dui commodo, molestie ipsum nec, sodales arcu.
-										</p>
-									</div>
-								</div>
-								<!-- Content Block - Section Text - End -->
-								<!-- Content Block - Features - Start -->
-								<div class="col-12 content-block">
-									<div class="column-padding-s">
-										<div class="container-fluid p-0">
-											<div class="row g-0">
-												<!-- feature single item -->
-												@foreach (var item in Model)
-												{
-													<div class="col-12 col-md-6 col-xl-3 feature-item">
-														<div class="feature-item-wrapper">
-															<img src="~/allurio/HTML/assets/img/icons/service-1.svg" alt="Allurio template service icon">
-															<h4 class="text-light"> @item.Name<br></h4>
-															<p class="text-light-mute">@item.Description</p>
-														</div>
-													</div>
-												}
-
-											</div>
-										</div>
-									</div>
-									<!-- Content Block - Features - End -->
-
-								</div>
-							</div>
-						</div>
-						<!-- Section Content End -->
-
-					</div>
+	<div class="row services">
+		<div class="spacer-60"></div>
+		<!-- a service -->
+		@foreach (var item in Model)
+		{
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+				<div class="service-item">
+					<i class="flaticon-web-design"></i>
+					<h5>@item.Name <br> </h5>
 				</div>
 			</div>
-		</div>
-		<!-- Section Info End -->
-		<!-- Section Media Start -->
-		<div class="inner__media media-padding media-services bg-medium">
-			<div class="color-layer color-layer-black-04"></div> <!-- Dark fill layer -->
-			<div class="media__wrapper">
-
-				<!-- Media Block - Countdown - Start -->
-				<div class="media__countdown">
-					<div class="countdown-content">
-
-						<!-- Countdown Start-->
-						<div class="countdown countdown-days">
-							<span class="help-text">It's just</span>
-							<div id="countdown"></div>
-							<span class="help-text">Days left</span>
-						</div>
-						<!-- Countdown End-->
-
-					</div>
-				</div>
-				<!-- Media Block - Countdown - End -->
-
-			</div>
-		</div>
-		<!-- Section Media End -->
-
-</section>
+		}
+	</div>
+</div>

@@ -3,131 +3,101 @@
 	Layout = null;
 }
 
-<section id="contact" class="inner contact">
+<section class="contact" id="contact">
+	<div class="spacer-75"></div>
+	<!-- Page Caption -->
+	<div class="section-title page-caption">
+		<h5>Get in Touch</h5>
+		<div class="zigzag">
+			<hr class="left">
+			<hr class="right">
+			<svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="37" height="28" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<path d="M1.357,12.26 10.807,2.81 20.328,12.332
+                      29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 " style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"></path>
+					  </svg>
+		</div>
+	</div>
+	<div class="spacer-45"></div>
+	<div class="row">
+		<!-- Map -->
+		<div id="map" class="map scale-animation" data-delay="2" data-duration="3"></div>
 
-	<!-- Section Info Start -->
-	<div class="inner__info bg-light">
-		<div class="info__wrapper">
-			<div class="container-fluid p-0">
-				<div class="row g-0">
 
-					<!-- Section Title Start -->
-					<div class="col-12 col-lg-1 info__title">
-						<div class="title-content column">
-							<span class="section-title text-dark">Contact</span>
-						</div>
-					</div>
-					<!-- Section Title End -->
-					<!-- Section Content Start -->
-					<div class="col-12 col-lg-11 info__content">
-						<div class="container-fluid p-0">
-							<div class="row g-0">
-
-								<!-- Content Block - Section Text - Start -->
-								<div class="col-12 col-lg-6 content-block mobile-margin">
-									<div class="column">
-										<h2 class="text-dark">Hello & welcome</h2>
-										<p class="section-text font-regular">
-											Phasellus vel ipsum vel orci egestas euismod at id turpis. Pellentesque accumsan turpis sit amet tellus ultrices, nec fermentum nibh pulvinar.
-											Sed ac diam turpis. Curabitur eget dui commodo, molestie ipsum nec, sodales arcu.
-										</p>
-
-										<!-- Contact Data Start -->
-										<div class="contact-data">
-											<div class="container-fluid p-0">
-												<div class="row g-0">
-													<!-- contact data single item -->
-													<div class="col-12 col-sm-6 contact-data__item">
-														<h5 class="text-dark">Location</h5>
-														<p class="font-regular">
-															11 West 53 Street
-															<br>New York, NY
-															<br>10019
-														</p>
-													</div>
-													<!-- contact data single item -->
-													<div class="col-12 col-sm-6 contact-data__item">
-														<h5 class="text-dark">Follow us</h5>
-														<ul>
-															<li>
-																<a class="font-regular" href="https://www.facebook.com/" target="_blank">Facebook</a>
-															</li>
-															<li>
-																<a class="font-regular" href="https://www.instagram.com/" target="_blank">Instagram</a>
-															</li>
-															<li>
-																<a class="font-regular" href="https://twitter.com/" target="_blank">Twitter</a>
-															</li>
-														</ul>
-													</div>
-													<!-- contact data single item -->
-													<div class="col-12 col-sm-6 contact-data__item">
-														<h5 class="text-dark">Phone</h5>
-														<p>
-															<a class="font-regular" href="tel:+12127089400">+1 212-708-9400</a>
-														</p>
-													</div>
-													<!-- contact data single item -->
-													<div class="col-12 col-sm-6 contact-data__item">
-														<h5 class="text-dark">Email</h5>
-														<p>
-															<a class="font-regular" href="mailto:example@example.com?subject=Message%20from%20your%20site">example@example.com</a>
-														</p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- Contact Data End -->
-
-									</div>
-								</div>
-								<!-- Content Block - Section Text - End -->
-								<!-- Content Block - Features - Start -->
-								<div class="col-12 col-lg-6 content-block">
-									<div class="column">
-										<h2 class="text-dark">Get in touch</h2>
-										<p class="section-text font-regular">Want to know more about us, tell us about your project or just to say hello? Drop us a line and we will get back as soon as possible.</p>
-
-										<!-- Contact Form Container Start -->
-										<div class="form-container">
-
-											<!-- Contact Form Reply Group Start -->
-											<div class="reply-group">
-												<p class="reply-group__title text-dark">Done!</p>
-												<span class="reply-group__text text-base font-regular">Thanks for your message.<br>We will get back as soon as possible.</span>
-											</div>
-											<!-- Contact Form Reply Group End -->
-											<!-- Contact Form Start -->
-											<form class="form contact-form form-dark" id="contact-form">
-												<!-- Hidden Required Fields -->
-												<input type="hidden" name="project_name" value="Allurio - Coming Soon & Portfolio Template">
-												<input type="hidden" name="admin_email" value="example@yourdomain.com">
-												<input type="hidden" name="form_subject" value="Contact Form Message">
-												<!-- END Hidden Required Fields-->
-												<input class="" type="text" name="Name" placeholder="Your Name*" required>
-												<input class="" type="email" name="E-mail" placeholder="Email Adress*" required>
-												<textarea class="" name="Message" placeholder="A Few Words*" required></textarea>
-												<span class="inputs-description">*Required fields</span>
-												<button class="btn btn-l btn-dark">Send</button>
-											</form>
-											<!-- Contact Form End  -->
-
-										</div>
-										<!-- Contact Form Container End -->
-
-									</div>
-								</div>
-								<!-- Content Block - Features - End -->
-
-							</div>
-						</div>
-					</div>
-					<!-- Section Content End -->
-
+		<div class="spacer-75"></div>
+		<!-- contact info -->
+		@foreach (var item in Model)
+		{
+			<div class="col-xl-5 scale-animation" data-delay="2" data-duration="3">
+				<div class="contact-info email">
+					<p class="little-p info-title">Write me</p>
+					<a href="mailto:hello@mosbycreative.com">@item.Email</a>
 				</div>
+				<div class="contact-info address">
+					<p class="little-p info-title">My office</p>
+					<p>
+						@item.Phone
+					</p>
+				</div>
+				<div class="contact-info address">
+					<p class="little-p info-title">My address</p>
+					<p>
+						@item.Address
+					</p>
+				</div>
+				<div class="contact-info social">
+					<p class="little-p info-title">Follow us</p>
+					<a href="#">Facebook.</a>
+					<a href="#">Twitter.</a>
+					<a href="#">Behance.</a>
+					<a href="#">Dribbble.</a>
+					<a href="#">Instagram.</a>
+					<a href="#">Linkedin.</a>
+				</div>
+			</div>
+		}
+		<div class="col-xl-6 offset-xl-1 scale-animation" data-delay="2" data-duration="3">
+			<!-- form -->
+			<div id="contact-formular">
+				<p class="little-p info-title">Or fill this form</p>
+				<div class="spacer-10"></div>
+				<div id="message"></div>
+				<form method="post" name="contactform" action="contact.php" id="contactform" class="row" autocomplete="off">
+					<!-- name -->
+					<div class="col-xl-12 contact-bar">
+						<input type="text" style="display:none" />
+						<input class="inp" name="name" type="text" placeholder="Name" id="name">
+					</div>
+					<!-- email -->
+					<div class="col-xl-12 contact-bar">
+						<input class="inp" name="email" type="text" placeholder="Email" id="email">
+					</div>
+					<!-- company -->
+					<div class="col-xl-12 contact-bar">
+						<input class="inp" name="company" type="text" placeholder="Company" id="company">
+					</div>
+					<!-- about project -->
+					<div class="col-xl-12 contact-bar">
+						<textarea class="inp" name="comments" id="comments" rows="3" placeholder="Tell me about your project"></textarea>
+					</div>
+					<!-- button -->
+					<div class="form-btn col-xl-12 contact-bar">
+						<input class="site-btn" type="submit" value="Send">
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
-	<!-- Section Info End -->
 
+	<!-- clients -->
+	<div class="client-slider  scale-animation">
+		<ul class="bxslider">
+			<li><img src="~/hagenclassic/assets/images/clients/client-1d.png" alt="" /></li>
+			<li><img src="~/hagenclassic/assets/images/clients/client-2d.png" alt="" /></li>
+			<li><img src="~/hagenclassic/assets/images/clients/client-3d.png" alt="" /></li>
+			<li><img src="~/hagenclassic/assets/images/clients/client-4d.png" alt="" /></li>
+			<li><img src="~/hagenclassic/assets/images/clients/client-5d.png" alt="" /></li>
+			<li><img src="~/hagenclassic/assets/images/clients/client-6d.png" alt="" /></li>
+			<li><img src="~/hagenclassic/assets/images/clients/client-7d.png" alt="" /></li>
+		</ul>
+	</div>
 </section>

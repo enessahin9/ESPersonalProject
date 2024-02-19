@@ -3,137 +3,59 @@
 @{
 	Layout = null;
 }
+@foreach (var item in Model)
+{
+    <section class="hero" id="home">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6 profile-pic">
+                <div class="image clip-animation from-left" style="background-image: url(@item.Image);">
+                    <img src="images/profile.jpg" alt="">
+                </div>
+                <div class="social-links clip-animation">
+                    <ul>
+                        <li><a href="#" target="_blank">Fb.</a></li>
+                        <li><a href="#" target="_blank">Tw.</a></li>
+                        <li><a href="#" target="_blank">Ins.</a></li>
+                        <li><a href="#" target="_blank">Drb.</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-6 right-content">
+                <h5 class="hi classic-animation" data-delay=".5">Hello Everyone <span>👋</span></h5>
+                <div class="spacer-15"></div>
+                <h1 class="hero-big classic-animation" data-delay=".7">
+                    I'm David Fincher<br> I am a<span class="element" data-values=" developer.,  designer.,  manager., " data-loop="true"
+                                                      data-backdelay="2">web interface.</span>
+                </h1>
+                <div class="spacer-30"></div>
+                <hr class="clip-animation" data-delay="1">
+                <ul class="row profile-info clip-animation" data-delay="1">
+                    <li class="col-xl-4 col-lg-6"> <i class="far fa-calendar-alt"></i> <span>@item.Profile</span></li>
+                    <li class="col-xl-4 col-lg-6">
+                        <a target="_blank" href="https://wa.me/987654321">
+                            <i class="fa-brands fa-whatsapp"></i> <span>@item.Phone</span>
+                        </a>
+                    </li>
+                    <li class="col-xl-4 col-lg-6">
+                        <a target="_blank" href="mailto:example.email.com">
+                            <i class="fa-solid fa-at"></i> <span>@item.Email</span>
+                        </a>
+                    </li>
+                    <li class="col-xl-4 col-lg-6">
+                        <i class="fa-solid fa-location-dot"></i> <span>
+                            New York, United
+                            States
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="spacer-30"></div>
+        <p class="clip-animation" data-delay="1.1">
+          @item.Description
+        </p>
 
-<section id="about" class="inner about">
 
-	<!-- Section Info Start -->
-	<div class="inner__info bg-dark">
-		<div class="info__wrapper">
-			<div class="container-fluid p-0">
-				<div class="row g-0">
+    </section>
+}
 
-					<!-- Section Title Start -->
-					<div class="col-12 col-lg-1 info__title">
-						<div class="title-content column">
-							<span class="section-title text-light">About us</span>
-						</div>
-					</div>
-					<!-- Section Title End -->
-					<!-- Section Content Start -->
-					<div class="col-12 col-lg-11 info__content">
-						<div class="container-fluid p-0">
-							<div class="row g-0">
-
-								<!-- Content Block - Section Text - Start -->
-								<div class="col-12 col-lg-6 content-block mobile-margin">
-									<div class="column">
-										@foreach (var item in Model)
-										{
-											<h2 class="text-light">@item.Name</h2>
-											<p class="section-text text-light-base">
-												@item.Description
-											</p>
-											<p class="section-text text-light-base">
-												I wonder if I've been changed in the night? Let me think. Was I the same when I got up this morning?
-												I almost think I can remember feeling a little different. But if I'm not the same, the next question is 'Who in the world am I?' Ah, that's the great puzzle!
-											</p>
-
-										}
-									</div>
-								</div>
-								<!-- Content Block - Section Text - End -->
-								<!-- Content Block - Skillbars - Start -->
-								<div class="col-12 col-lg-6 content-block">
-									<div class="column">
-										<h2 class="text-light">What we do</h2>
-										<div class="skillbars">
-											<!-- Skillbar single item -->
-											<div class="show-skillbar">
-												<div class="skillbar light" data-percent="96">
-													<span class="skillbar-title text-light">Design</span>
-													<p class="skillbar-bar light"></p>
-													<span class="skill-bar-percent text-light"></span>
-												</div>
-											</div>
-											<!-- Skillbar single item -->
-											<div class="show-skillbar">
-												<div class="skillbar light" data-percent="84">
-													<span class="skillbar-title text-light">Branding</span>
-													<p class="skillbar-bar light"></p>
-													<span class="skill-bar-percent text-light"></span>
-												</div>
-											</div>
-											<!-- Skillbar single item -->
-											<div class="show-skillbar">
-												<div class="skillbar light" data-percent="90">
-													<span class="skillbar-title text-light">Marketing</span>
-													<p class="skillbar-bar light"></p>
-													<span class="skill-bar-percent text-light"></span>
-												</div>
-											</div>
-											<!-- Skillbar single item -->
-											<div class="show-skillbar">
-												<div class="skillbar light" data-percent="73">
-													<span class="skillbar-title text-light">Selling</span>
-													<p class="skillbar-bar light"></p>
-													<span class="skill-bar-percent text-light"></span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Content Block - Skillbars - End -->
-
-							</div>
-						</div>
-					</div>
-					<!-- Section Content End -->
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Section Info End -->
-	<!-- Section Media Start -->
-	<div class="inner__media bg-light">
-		<div class="media__wrapper">
-
-			<!-- About Section Slider Start -->
-			<div class="about-slider">
-				<!-- slider main container -->
-				<div class="swiper-about">
-					<!-- additional required wrapper -->
-					<div class="swiper-wrapper">
-						<!-- slides -->
-						<div class="swiper-slide">
-							<img src="https://dummyimage.com/1024x1024/383838/8d8d8d" alt="Allurio Coming Soon & Portfolio Template About Slider Image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://dummyimage.com/1024x1024/383838/8d8d8d" alt="Allurio Coming Soon & Portfolio Template About Slider Image">
-						</div>
-						<div class="swiper-slide">
-							<img src="https://dummyimage.com/1024x1024/383838/8d8d8d" alt="Allurio Coming Soon & Portfolio Template About Slider Image">
-						</div>
-					</div>
-					<!-- navigation buttons -->
-					<div class="about-slider-controls">
-						<div class="controls-container">
-							<div class="swiper-button-prev about-swiper-button-prev">
-								<i class="icon ion-ios-arrow-left"></i>
-								<span class="controls-caption">Prev</span>
-							</div>
-							<div class="swiper-button-next about-swiper-button-next">
-								<span class="controls-caption">Next</span>
-								<i class="icon ion-ios-arrow-right"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- About Section Slider End -->
-
-		</div>
-	</div>
-	<!-- Section Media End -->
-
-</section>
