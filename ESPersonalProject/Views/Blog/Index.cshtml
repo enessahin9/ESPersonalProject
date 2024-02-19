@@ -1,286 +1,178 @@
-﻿
+﻿@model Models.BlogDetail
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/BlogLayout.cshtml";
+    Layout = null;
 }
+
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Gmaakeup - Makeup Artist  HTML Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="~/gmaakeupblog/assets/img/favicon.ico">
-    <!-- Place favicon.ico in the root directory -->
-    <!-- CSS here -->
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/animate.min.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="fontawesome/~/gmaakeupblog/assets/css/all.min.css">
-    <link rel="stylesheet" href="font-flaticon/flaticon.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/dripicons.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/slick.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/meanmenu.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/default.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/style.css">
-    <link rel="stylesheet" href="~/gmaakeupblog/assets/css/responsive.css">
+    <title>Hagen - vcard template</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hagen - vcard template">
+    <meta name="keywords" content="personal, portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/hagenclassic/assets/css/main.css" />
+
+
+
+    <!-- Google Web fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <!-- Font icons -->
+    <link rel="stylesheet" href="icon-fonts/flat-icon/flaticon.css" />
+    <link rel="stylesheet" href="icon-fonts/font-awesome/~/hagenclassic/assets/css/all.min.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-<section class="inner-blog pt-120 pb-105">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="bsingle__post mb-50">
-                    <div class="bsingle__post-thumb">
-                        <img src="/gmaakeupblog/assets/img/blog/deneme.png" alt="">
-                    </div>
-                    <div class="bsingle__content">
-                        <div class="admin">
-                            <i class="fal fa-calendar-alt"></i> 24th March 2021
-                        </div>
-                        <div class="meta-info">
-                            <ul>
-                                <li><i class="fal fa-eye"></i> 100 Views  </li>
-                                <li><i class="fal fa-comments"></i> 35 Comments</li>
-                                <li><i class="far fa-user"></i> by Hetmayar</li>
-                            </ul>
-                        </div>
+<body class="scroll-animation-on">
 
-                        <h2>
-                            <a href="blog-details.html">
-                                Lorem ipsum dolor sit amet, consectetur
-                                cing elit, sed do eiusmod tempor.
-                            </a>
-                        </h2>
-                        <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.</p>
-
-
-                    </div>
-                </div>
-                <div class="bsingle__post mb-50">
-                    <div class="bsingle__post-thumb video-p">
-                        <img src="~/gmaakeupblog/assets/img/blog/inner_b2.jpg" alt="">
-                        <a href="https://www.youtube.com/watch?v=2xc9YKdlLW0" class="video-i popup-video"><i class="fas fa-play"></i></a>
-                    </div>
-                    <div class="bsingle__content">
-                        <div class="admin">
-                            <i class="fal fa-calendar-alt"></i> 24th March 2021
-                        </div>
-                        <div class="meta-info">
-                            <ul>
-                                <li><i class="fal fa-eye"></i> 100 Views  </li>
-                                <li><i class="fal fa-comments"></i> 35 Comments</li>
-                                <li><i class="far fa-user"></i> by Hetmayar</li>
-                            </ul>
-                        </div>
-
-                        <h2>
-                            <a href="blog-details.html">
-                                Lorem ipsum dolor sit amet, consectetur
-                                cing elit, sed do eiusmod tempor.
-                            </a>
-                        </h2>
-                        <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.</p>
-
-
-                    </div>
-                </div>
-                <div class="bsingle__post mb-50">
-                    <div class="bsingle__post-thumb blog-active">
-                        <div class="slide-post">
-                            <img src="~/gmaakeupblog/assets/img/blog/inner_b3.jpg" alt="">
-                        </div>
-                        <div class="slide-post">
-                            <img src="~/gmaakeupblog/assets/img/blog/inner_b2.jpg" alt="">
-                        </div>
-                        <div class="slide-post">
-                            <img src="~/gmaakeupblog/assets/img/blog/inner_b1.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="bsingle__content">
-                        <div class="admin">
-                            <i class="fal fa-calendar-alt"></i> 24th March 2021
-                        </div>
-                        <div class="meta-info">
-                            <ul>
-                                <li><i class="fal fa-eye"></i> 100 Views  </li>
-                                <li><i class="fal fa-comments"></i> 35 Comments</li>
-                                <li><i class="far fa-user"></i> by Hetmayar</li>
-                            </ul>
-                        </div>
-
-                        <h2>
-                            <a href="blog-details.html">
-                                Lorem ipsum dolor sit amet, consectetur
-                                cing elit, sed do eiusmod tempor.
-                            </a>
-                        </h2>
-                        <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.</p>
-
-
-                    </div>
-                </div>
-                <div class="bsingle__post mb-50">
-                    <div class="bsingle__post-thumb embed-responsive embed-responsive-16by9">
-                        <iframe height="300" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/547295505&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-                    </div>
-                    <div class="bsingle__content">
-                        <div class="admin">
-                            <i class="fal fa-calendar-alt"></i> 24th March 2021
-                        </div>
-
-                        <div class="meta-info">
-                            <ul>
-                                <li><i class="fal fa-eye"></i> 100 Views  </li>
-                                <li><i class="fal fa-comments"></i> 35 Comments</li>
-                                <li><i class="far fa-user"></i> by Hetmayar</li>
-                            </ul>
-                        </div>
-                        <h2>
-                            <a href="blog-details.html">
-                                Lorem ipsum dolor sit amet, consectetur
-                                cing elit, sed do eiusmod tempor.
-                            </a>
-                        </h2>
-                        <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.</p>
-
-
-                    </div>
-                </div>
-                <div class="bsingle__post mb-50">
-                    <div class="bsingle__content">
-                        <div class="meta-info">
-                            <ul>
-                                <li><i class="fal fa-eye"></i> 100 Views  </li>
-                                <li><i class="fal fa-comments"></i> 35 Comments</li>
-                                <li><i class="far fa-user"></i> by Hetmayar</li>
-                            </ul>
-                        </div>
-                        <h2>
-                            <a href="blog-details.html">
-                                Lorem ipsum dolor sit amet, consectetur
-                                cing elit, sed do eiusmod tempor.
-                            </a>
-                        </h2>
-                        <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.</p>
-
-                    </div>
-                </div>
-                <div class="bsingle__post mb-50">
-                    <div class="bsingle__content quote-post" style="background-image:url(~/gmaakeupblog/assets/img/bg/quote_bg.png)">
-                        <div class="meta-info">
-                            <ul>
-                                <li><i class="fal fa-eye"></i> 100 Views  </li>
-                                <li><i class="fal fa-comments"></i> 35 Comments</li>
-                                <li><i class="far fa-user"></i> by Hetmayar</li>
-                            </ul>
-                        </div>
-                        <div class="quote-icon">
-                            <img src="~/gmaakeupblog/assets/img/icon/blockquote.png" alt="">
-                        </div>
-                        <h2><a href="blog-details.html">We denounce with of righteous one indignation and dislike men.</a></h2>
-
-                    </div>
-                </div>
-                <div class="pagination-wrap">
-                    <nav>
-                        <ul class="pagination">
-                            <li class="page-item"><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
-                            <li class="page-item active"><a href="#">1</a></li>
-                            <li class="page-item"><a href="#">2</a></li>
-                            <li class="page-item"><a href="#">3</a></li>
-                            <li class="page-item"><a href="#">...</a></li>
-                            <li class="page-item"><a href="#">10</a></li>
-                            <li class="page-item"><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
-                        </ul>
-                    </nav>
-                </div>
+    <!-- Preloader  -->
+    <div id="loader" class="preloader">
+        <div class="loading">
+            <div class="profile-image">
+                <img src="~/hagenclassic/assets/~/hagenclassic/assets/images/profile-loader.jpg" alt="">
+                <svg style="position: absolute;" width="100px" height="100px" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <circle class="js-circle circle" cx="50" cy="50" r="48" stroke="white" stroke-width="2" fill="none" />
+                    <circle class="js-circle circletwo" cx="50" cy="50" r="48" stroke="white" stroke-width="2" fill="none" />
+                </svg>
             </div>
-            <!-- #right side -->
-            <div class="col-sm-12 col-md-12 col-lg-4">
-                <aside class="sidebar-widget">
-                    <section id="search-3" class="widget widget_search">
-                        <h2 class="widget-title">Search</h2>
-                        <form role="search" method="get" class="search-form" action="http://wordpress.zcube.in/finco/">
-                            <label>
-                                <span class="screen-reader-text">Search for:</span>
-                                <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
-                            </label>
-                            <input type="submit" class="search-submit" value="Search" />
-                        </form>
-                    </section>
-                    <section id="custom_html-5" class="widget_text widget widget_custom_html">
-                        <h2 class="widget-title">Follow Us</h2>
-                        <div class="textwidget custom-html-widget">
-                            <div class="widget-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-wordpress"></i></a>
-                            </div>
-                        </div>
-                    </section>
-                    <section id="categories-1" class="widget widget_categories">
-                        <h2 class="widget-title">Categories</h2>
-                        <ul>
-                            <li class="cat-item cat-item-16"><a href="#">Branding</a> (4)</li>
-                            <li class="cat-item cat-item-23"><a href="#">Corporat</a> (3)</li>
-                            <li class="cat-item cat-item-18"><a href="#">Design</a> (3)</li>
-                            <li class="cat-item cat-item-22"><a href="#">Gallery</a> (3)</li>
-                        </ul>
-                    </section>
-                    <section id="recent-posts-4" class="widget widget_recent_entries">
-                        <h2 class="widget-title">Recent Posts</h2>
-                        <ul>
-                            <li>
-                                <a href="#">User Experience Psychology And Performance Smshing</a>
-                                <span class="post-date">August 19, 2021</span>
-                            </li>
-                            <li>
-                                <a href="#">Monthly Web Development Up Cost Of JavaScript</a>
-                                <span class="post-date">August 19, 2021</span>
-                            </li>
-                            <li>
-                                <a href="#">There are many variation passages of like available.</a>
-                                <span class="post-date">August 19, 2021</span>
-                            </li>
-                        </ul>
-                    </section>
-                    <section id="tag_cloud-1" class="widget widget_tag_cloud">
-                        <h2 class="widget-title">Tag</h2>
-                        <div class="tagcloud">
-                            <a href="#" class="tag-cloud-link tag-link-28 tag-link-position-1" style="font-size: 8pt;" aria-label="app (1 item)">app</a>
-                            <a href="#" class="tag-cloud-link tag-link-17 tag-link-position-2" style="font-size: 8pt;" aria-label="Branding (1 item)">Branding</a>
-                            <a href="#" class="tag-cloud-link tag-link-20 tag-link-position-3" style="font-size: 8pt;" aria-label="corporat (1 item)">corporat</a>
-                            <a href="#" class="tag-cloud-link tag-link-24 tag-link-position-4" style="font-size: 16.4pt;" aria-label="Design (2 items)">Design</a>
-                            <a href="#" class="tag-cloud-link tag-link-25 tag-link-position-5" style="font-size: 22pt;" aria-label="gallery (3 items)">gallery</a>
-                            <a href="#" class="tag-cloud-link tag-link-26 tag-link-position-6" style="font-size: 8pt;" aria-label="video (1 item)">video</a>
-                            <a href="#" class="tag-cloud-link tag-link-29 tag-link-position-7" style="font-size: 16.4pt;" aria-label="web design (2 items)">web design</a>
-                        </div>
-                    </section>
-                </aside>
-            </div>
-            <!-- #right side end -->
-
         </div>
     </div>
-</section>
-<script src="~/gmaakeupblog/assets/js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/vendor/jquery-3.6.0.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/popper.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/bootstrap.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/one-page-nav-min.js"></script>
-<script src="~/gmaakeupblog/assets/js/slick.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/ajax-form.js"></script>
-<script src="~/gmaakeupblog/assets/js/paroller.js"></script>
-<script src="~/gmaakeupblog/assets/js/wow.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/js_isotope.pkgd.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/imagesloaded.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/parallax.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/jquery.waypoints.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/jquery.counterup.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/jquery.scrollUp.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/jquery.meanmenu.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/parallax-scroll.js"></script>
-<script src="~/gmaakeupblog/assets/js/jquery.magnific-popup.min.js"></script>
-<script src="~/gmaakeupblog/assets/js/element-in-view.js"></script>
-<script src="~/gmaakeupblog/assets/js/main.js"></script>
+    <!-- Preloader End -->
+
+
+    <div class="page-cover">
+        <div id="page-scroll">
+            <div class="barba-wrapper" data-barba="wrapper">
+                <main data-barba="container">
+                    <!-- Page Wrapper -->
+                    <div class="container">
+                        <div class="page-wrapper">
+
+                            <header id="fixed">
+                                <div class="hamburger hamburger--elastic">
+                                    <span class="hamburger-box"> <span class="hamburger-inner"></span> </span>
+                                </div>
+                                <nav>
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="resume.html">Resume</a></li>
+                                        <li><a href="portfolio.html">Portfolio</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </header>
+
+                            <!-- ARTICLE BLOG
+                            ================================================== -->
+                            <div class="single-blog">
+                                <!-- Page Caption -->
+                                <div class="single-post-metas">
+                                    <div class="blog-date"> </div>
+                                    <div class="categories">
+                                        <a class="category" href="http://localhost:8888/Wp-starting-pack/category/uncategorized/" rel="category tag"><span data-hover="Uncategorized">Uncategorized</span></a>
+                                    </div>
+                                </div>
+                                <div class="single-post-title">
+                                    <h1 class="big-title">@Model.Name</h1>
+                                </div>
+                                <div class="spacer-45"></div>
+                                <!-- Image -->
+                                <div class="about-image clip-animation" data-delay="1" data-duration="2">
+                                    <img src="@Model.ImageUrl" alt="">
+                                </div>
+                                <div class="spacer-45"></div>
+                                <!-- Article Text -->
+                                <div class="blog-entry scale-animation" data-delay="1" data-duration="2">
+                                    @Model.Description
+                            </div>
+
+                            <!-- tags -->
+                            <div class="col-xl-12 scale-animation">
+                                <div class="tags">
+                                    <i class="fas fa-tag"></i>
+                                    <ul>
+                                        <li><a href="#" data-cursor-type="big">Wordpress</a></li>
+                                        <li><a href="#" data-cursor-type="big">Creative</a></li>
+                                        <li><a href="#" data-cursor-type="big">Blog</a></li>
+                                        <li><a href="#" data-cursor-type="big">Theme</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="spacer-60"></div>
+                            <!-- form -->
+                            <div id="contact-formular" class="col-xl-8 scale-animation">
+                                <h5 class="underline-title">Leave a message</h5>
+                                <div class="spacer-30"></div>
+                                <form method="post" name="contactform" id="contactform" class="row" autocomplete="off">
+                                    <!-- name -->
+                                    <div class="col-xl-6">
+                                        <input type="text" style="display:none" />
+                                        <input class="inp" name="name" type="text" placeholder="Name" id="name">
+                                    </div>
+                                    <!-- email -->
+                                    <div class="col-xl-6">
+                                        <input class="inp" name="email" type="text" placeholder="Email" id="email">
+                                    </div>
+                                    <!-- about project -->
+                                    <div class="col-xl-12">
+                                        <textarea class="inp" name="comments" id="comments" rows="3" placeholder="Message"></textarea>
+                                    </div>
+                                    <!-- button -->
+                                    <div class="form-btn col-xl-12">
+                                        <input class="site-btn" type="submit" value="Send">
+                                    </div>
+                                </form>
+                            </div>
+
+
+
+
+
+
+                        </div> <!-- page wrapper end -->
+                    </div><!-- container -->
+                    <!-- FOOTER -->
+                    <footer>
+                        <div class="container">
+                            <div class="footer-inner">
+                                <div class="copyright">
+                                    <p>Copyright 2022 - All right reserved</p>
+                                </div>
+                                <ul class="social">
+                                    <li><a target="_blank" href="#">Facebook</a></li>
+                                    <li><a target="_blank" href="#">Twitter</a></li>
+                                    <li><a target="_blank" href="#">Instagram</a></li>
+                                    <li><a target="_blank" href="#">Dribbble</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+        </div>
+    </div>
+    <div class="bg-image" style="background-image: url(~/hagenclassic/assets/images/bg.jpg);"></div>
+
+    <!-- Javascripts -->
+    <script src="~/hagenclassic/assets/js/jquery.js"></script>
+    <script src="~/hagenclassic/assets/js/plugins.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3gqyHylICdokv-P1q2WtRihCFhiFnm_U&sensor=false"></script>
+    <script src="~/hagenclassic/assets/js/map.js"></script>
+    <script src="~/hagenclassic/assets/js/main.js"></script>
+
+</body>
+</html>

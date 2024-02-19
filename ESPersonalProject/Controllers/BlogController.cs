@@ -1,17 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Service;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ESPersonalProject.Controllers
 {
 
 	public class BlogController : Controller
 	{
-		public IActionResult Index()
+		private readonly IBlogDetailService _blogDetailService;
+
+		public BlogController(IBlogDetailService blogDetailService)
 		{
-			return View();
+			_blogDetailService = blogDetailService;
 		}
-		public IActionResult BlogDetail()
-		{
-			return View();
+
+		public IActionResult Index(int id)
+		{ 
+			var detail=_blogDetailService.TGetById(id);
+			return View(detail);
 		}
+	
 	}
 }

@@ -1,267 +1,349 @@
 ﻿@{
 	Layout = null;
 }
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<!--Head Alanı-->
+<!doctype html>
+<html lang="en">
+
 @await Html.PartialAsync("HeadPartial")
 
-<body class="overflow-hidden dark">
+<body class="onepage">
 
-	<!-- Loader Start -->
+	<!-- Preloader  -->
 	@await Html.PartialAsync("LoaderPartial")
-	<!-- Loader End -->
-	<!-- Navigation Start -->
-	@await Html.PartialAsync("MenuPartial")
-	<!-- Navigation End -->
-	<!-- Header Start -->
-	<header id="header" class="header transparent">
-		<div class="header__content">
+	<!-- Preloader End -->
 
-			<!-- Logo Start -->
-			<div class="logo">
-				<!-- Your Logo Here -->
-				<img src="~/allurio/HTML/assets/img/logo-light.svg" alt="Allurio - Coming Soon & Portfolio Template">
-			</div>
-			<!-- Logo End -->
-			<!-- Menu Trigger Start -->
-			<div class="menu-button">
-				<a href="#0" id="menu-trigger" class="menu-trigger">
-					<span class="menu-caption">Menu</span>
-					<span class="menu-burger"></span>
-				</a>
-			</div>
-			<!-- Menu Trigger End -->
 
-		</div>
-	</header>
-	<!-- Header End -->
-	<!-- Main Section Start -->
-	<section id="main" class="main">
+	<div class="page-cover">
+		<div id="page-scroll">
+			<div class="barba-wrapper" data-barba="wrapper">
+				<main data-barba="container">
+					<!-- Page Wrapper -->
+					<div class="container">
+						<div class="page-wrapper">
 
-		<!-- Main Section Content Start -->
-		<div class="main__content">
-			<div class="container-fluid p-0 fullheight-mobile">
-				<div class="row g-0 fullheight-mobile">
-
-					<!-- Main Section Intro Start -->
-					<div class="col-12 main__intro">
-
-						<!-- Intro Content Start -->
-						<div class="intro__content">
-
-							<!-- Headline Start -->
-							<div id="headline" class="headline bottom column">
-								<h1 class="headline__animate large text-light">Nice to meet you</h1>
-								<div class="headline__btnholder bottom">
-									<a href="#0" id="notify-trigger" class="btn btn-s btn-s-light">
-										<span class="btn-caption">Subscribe</span>
-										<span class="icon ion-ios-arrow-right"></span>
-									</a>
-									<a href="#about" class="btn btn-s btn-s-light">
-										<span class="btn-caption">Explore</span>
-										<span class="icon ion-ios-arrow-down"></span>
-									</a>
+							<header id="fixed">
+								<div class="hamburger hamburger--elastic">
+									<span class="hamburger-box"> <span class="hamburger-inner"></span> </span>
 								</div>
-							</div>
-							<!-- Headline End -->
+								<nav>
+									<ul>
+										<li><a class="active" href="#home">Home</a></li>
+										<li><a href="#resume">Resume</a></li>
+										<li><a href="#portfolio">Portfolio</a></li>
+										<li><a href="#blog">Blog</a></li>
+										<li><a href="#contact">Contact</a></li>
+									</ul>
+								</nav>
+							</header>
 
-						</div>
-						<!-- Intro Content End -->
+							@* //About *@
+					
+							@await Component.InvokeAsync("AboutList")
+							@await Component.InvokeAsync("ServiceList")
 
-					</div>
-					<!-- Main Section Intro End -->
-					<!-- Main Section Media Start -->
-					<div class="col-12 main__media">
-
-						<!-- Media Content Start -->
-						<div class="media__content fullscreen">
-
-							<!-- Main Section Image & Background Effect Start -->
-							<div class="media__image media-image-fullscreen-2">
-
-								<!-- Color Layer Start -->
-								<div class="color-layer color-layer-black-04"></div>
-								<!-- Color Layer End -->
-								<!-- Background Effect Start -->
-								<div id="particles-js"></div>
-								<!-- Background Effect End -->
-
-							</div>
-							<!-- Main Section Image & Background Effect End -->
-
-						</div>
-						<!-- Media Content End -->
-
-					</div>
-					<!-- Main Section Media End -->
-
-				</div>
-			</div>
-		</div>
-		<!-- Main Section Content End -->
-
-	</section>
-	<!-- Main Section End -->
-	<!-- About Section Start -->
-	@await Component.InvokeAsync("AboutList")
-	<!-- About Section End -->
-	<!-- Portfolio Section Start -->
-	@await Component.InvokeAsync("PortfolioList")
-	<!-- Portfolio Section End -->
-	<!-- Services Section Start -->
-	@await Component.InvokeAsync("ServiceList")
-	<!-- Services Section End -->
-	<!-- Contact Section Start -->
-	@await Component.InvokeAsync("ContactList")
-	<!-- Contact Section End -->
-	<!-- Footer Start -->
-	@await Html.PartialAsync("FooterPartial")
-	<!-- Footer End -->
-	<!-- To-top Button Start -->
-	<a href="#main" class="to-top">
-		<span class="icon ion-ios-arrow-up"></span>
-	</a>
-	<!-- To-top Button End -->
-	<!-- Notify Popup Start -->
-	<div id="notify" class="popup notify bg-dark">
-
-		<!-- Popup Header Start -->
-		<div class="popup__header">
-			<div class="header-content">
-
-				<!-- Popup Close Button Start -->
-				<div class="close-button">
-					<a href="#0" id="notify-close" class="popup-close light">
-						<span class="close-caption">Close</span>
-						<span class="close-x"></span>
-					</a>
-				</div>
-				<!-- Popup Close Button End -->
-
-			</div>
-		</div>
-		<!-- Popup Header End -->
-		<!-- Popup Content Start -->
-		<div class="popup__content">
-			<div class="container-fluid p-0 fullheight">
-				<div class="row g-0 justify-content-center fullheight">
-					<div class="col-12 col-md-8 col-lg-6 col-xl-5 fullheight">
-						<div class="popup-container">
-
-							<!-- Popup Title Start -->
-							<div class="popup-title column">
-								<p class="popup-title__title text-light">Get to know about our launch</p>
-								<p class="popup-title__text text-light-base">Subscribe to our newsletter and we will send you a notification about the launch of our brand new site.</p>
-							</div>
-							<!-- Popup Title End -->
-							<!-- Popup Form Start -->
-							<div class="popup-form column">
-								<div class="form-container">
-
-									<!-- Reply Messages Start-->
-									<div class="reply-group subscription-ok">
-										<p class="reply-group__title text-light">Done!</p>
-										<span class="reply-group__text text-light-base">Thanks for subscribing. We will send you a notification about the launch of our brand new website.</span>
+							<!-- RESUME -->
+				
+							<section id="resume">
+								<div class="spacer-75"></div>
+								<!-- Page Caption -->
+								<div class="section-title page-caption">
+									<h5>My Resume</h5>
+									<div class="zigzag">
+										<hr class="left">
+										<hr class="right">
+										<svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="37" height="28" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+										<path d="M1.357,12.26 10.807,2.81 20.328,12.332
+                      29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 " style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"></path>
+					  </svg>
 									</div>
-									<div class="reply-group subscription-error">
-										<p class="reply-group__title text-light">Ooops!</p>
-										<span class="reply-group__text text-light-base">Something went wrong. Please try again later.</span>
+								</div>
+
+								<!-- Timeline Work -->
+								<div class="spacer-45"></div>
+								<div class="timeline-caption-outer">
+									<div class="timeline-caption">👨‍💻 <span>Works Experiences</span></div>
+								</div>
+								<div class="timeline row">
+									<!-- item -->
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
+										 data-duration="1.5">
+										<div class="timeline-outer">
+											<span class="mini-text">2010 - Present</span>
+											<h5>Art Director - Facebook Inc</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
 									</div>
-									<!-- Reply Messages End-->
-									<!-- Notify Contact Form Start-->
-									<form class="form notify-form form-light">
-										<input class="" type="email" placeholder="Email Adress*" required>
-										<span class="inputs-description">*Required field</span>
-										<button class="btn btn-l btn-light" type="submit">Send</button>
-									</form>
-									<!-- Notify Contact Form End-->
+									<!-- item -->
+									<div class="col-xl-6 offset-xl-6 col-lg-6 offset-lg-6 col-md-6 offset-md-6 col-sm-12 timeline-item  clip-animation from-top"
+										 data-duration="1.5" data-delay=".4">
+										<div class="timeline-outer">
+											<span class="mini-text">2008 - 2010</span>
+											<h5>Senior Designer - Google</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+									<!-- item -->
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
+										 data-duration="1.5" data-delay=".8">
+										<div class="timeline-outer">
+											<span class="mini-text">2005 - 2008</span>
+											<h5>Junior Designer - Creative Shake</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+									<!-- item -->
+									<div class="col-xl-6 offset-xl-6 col-lg-6 offset-lg-6 col-md-6 offset-md-6 col-sm-12  timeline-item clip-animation from-top"
+										 data-duration="1.5" data-delay="1.2">
+										<div class="timeline-outer">
+											<span class="mini-text">2004 - 2008</span>
+											<h5>Junior Designer - Grovemade</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+									<!-- item -->
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
+										 data-duration="1.5" data-delay="1.7">
+										<div class="timeline-outer">
+											<span class="mini-text">2000 - 2004</span>
+											<h5> - Facebook Inc</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+								</div>
+
+
+								<!-- Timeline -->
+								<div class="spacer-120"></div>
+								<div class="timeline-caption-outer">
+									<div class="timeline-caption">🎓 <span>Education</span></div>
+								</div>
+								<div class="timeline row">
+									<!-- item -->
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
+										 data-duration="1.5" data-delay=".5">
+										<div class="timeline-outer">
+											<span class="mini-text">2004 - 2009</span>
+											<h5>Abc University of Los Angeles</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+									<!-- item -->
+									<div class="col-xl-6 offset-xl-6 col-lg-6 offset-lg-6 col-md-6 offset-md-6 col-sm-12 timeline-item clip-animation from-top"
+										 data-duration="1.5" data-delay=".7">
+										<div class="timeline-outer">
+											<span class="mini-text">2004 - 2003</span>
+											<h5>Drawing Course</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+									<!-- item -->
+									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
+										 data-duration="1.5" data-delay="1">
+										<div class="timeline-outer">
+											<span class="mini-text">2000 - 2003 </span>
+											<h5>Abc High School </h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+									<!-- item -->
+									<div class="col-xl-6 offset-xl-6 col-lg-6 offset-lg-6 col-md-6 offset-md-6 col-sm-12 timeline-item clip-animation from-top"
+										 data-duration="1.5" data-delay="1.2">
+										<div class="timeline-outer">
+											<span class="mini-text">2010 - Present</span>
+											<h5>Abc Collage of Los Angeles</h5>
+											<p class="little-p">
+												I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
+												our business. I like tavonline more and more each day because it makes my life a lot easier.
+											</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="spacer-60"></div>
+
+								<div class="skills">
+									<h5 class="underline-title classic-animation">My Skills</h5>
+									<div class="spacer-60"></div>
+
+									<div class="row">
+										<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 classic-animation" data-delay=".3">
+											<h2 class="skills-category">LANGUAGE</h2>
+										</div>
+										<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11">
+											<div class="row">
+												<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+													 data-delay=".5">
+													<div class="chart" data-percent="92" data-scale-color="#ffb400">
+														<span class="percent">92</span>
+													</div>
+													<div class="skills-description">
+														<h6>English</h6>
+													</div>
+												</div>
+												<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+													 data-delay=".6">
+													<div class="chart" data-percent="70" data-scale-color="#ffb400">
+														<span class="percent">70</span>
+													</div>
+													<div class="skills-description">
+														<h6>French</h6>
+													</div>
+												</div>
+												<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+													 data-delay=".7">
+													<div class="chart" data-percent="30" data-scale-color="#ffb400">
+														<span class="percent">60</span>
+													</div>
+													<div class="skills-description">
+														<h6>Spanish</h6>
+													</div>
+												</div>
+												<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+													 data-delay=".8">
+													<div class="chart" data-percent="10" data-scale-color="#ffb400">
+														<span class="percent">10</span>
+													</div>
+													<div class="skills-description">
+														<h6>Japanese</h6>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="spacer-45"></div>
+									<hr>
+									<div class="spacer-45"></div>
+
+									<div class="row">
+
+										<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 classic-animation">
+											<h2 class="skills-category">DESIGN</h2>
+										</div>
+										<div class="col-xl-5 col-lg-5 col-md-5 col-sm-11 col-11 classic-animation" data-delay=".2">
+											<ul class="skill-list">
+												<li>
+													<div class="bar-info">
+														<h3>Photoshop</h3>
+														<span>80%</span>
+													</div>
+													<div class="progress">
+														<div class="percentage" data-percent="80%"></div>
+													</div>
+												</li>
+												<li>
+													<div class="bar-info">
+														<h3>Sketch</h3>
+														<span>80%</span>
+													</div>
+													<div class="progress">
+														<div class="percentage" data-percent="50%"></div>
+													</div>
+												</li>
+												<li>
+													<div class="bar-info">
+														<h3>Figma</h3>
+														<span>80%</span>
+													</div>
+													<div class="progress">
+														<div class="percentage" data-percent="70%"></div>
+													</div>
+												</li>
+											</ul>
+										</div>
+
+										<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 classic-animation" data-delay=".4">
+											<h2 class="skills-category">CODING</h2>
+										</div>
+										<div class="col-xl-5 col-lg-5 col-md-5 col-sm-11 col-11 classic-animation" data-delay=".5">
+											<ul class="skill-list">
+												<li>
+													<div class="bar-info">
+														<h3>Javascript</h3>
+														<span>80%</span>
+													</div>
+													<div class="progress">
+														<div class="percentage" data-percent="80%"></div>
+													</div>
+												</li>
+												<li>
+													<div class="bar-info">
+														<h3>HTML5</h3>
+														<span>80%</span>
+													</div>
+													<div class="progress">
+														<div class="percentage" data-percent="50%"></div>
+													</div>
+												</li>
+												<li>
+													<div class="bar-info">
+														<h3>CSS3</h3>
+														<span>80%</span>
+													</div>
+													<div class="progress">
+														<div class="percentage" data-percent="70%"></div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
 
 								</div>
-							</div>
-							<!-- Popup Form End -->
+							</section>
+							<!-- PORTFOLIO -->
+							@await Component.InvokeAsync("PortfolioList")
+						
 
-						</div>
-					</div>
-				</div>
+							<!-- BLOG SECTION
+							================================================== -->
+						
+					        @await Component.InvokeAsync("BlogList")
+
+							<!-- CONTACT -->
+							@await Component.InvokeAsync("ContactList")
+						
+
+						</div> <!-- page wrapper end -->
+					</div><!-- container -->
+					<!-- FOOTER -->
+				@await Html.PartialAsync("FooterPartial")
+				</main>
 			</div>
 		</div>
-		<!-- Popup Content End -->
-
 	</div>
-	<!-- Notify Popup End -->
-	<!-- Root element of PhotoSwipe. Must have class pswp. -->
-	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="bg-image" style="background-image: url(/hagenclassic/assets/images/bg.jpg);"></div>
 
-		<!-- Background of PhotoSwipe.
-		It's a separate element, as animating opacity is faster than rgba(). -->
-		<div class="pswp__bg"></div>
-
-		<!-- Slides wrapper with overflow:hidden. -->
-		<div class="pswp__scroll-wrap">
-
-			<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-			<!-- don't modify these 3 pswp__item elements, data is added later on. -->
-			<div class="pswp__container">
-				<div class="pswp__item"></div>
-				<div class="pswp__item"></div>
-				<div class="pswp__item"></div>
-			</div>
-
-			<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-			<div class="pswp__ui pswp__ui--hidden">
-
-				<div class="pswp__top-bar">
-
-					<!--  Controls are self-explanatory. Order can be changed. -->
-
-					<div class="pswp__counter"></div>
-
-					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-					<button class="pswp__button pswp__button--share" title="Share"></button>
-
-					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-					<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-					<!-- element will get class pswp__preloader-active when preloader is running -->
-					<div class="pswp__preloader">
-						<div class="pswp__preloader__icn">
-							<div class="pswp__preloader__cut">
-								<div class="pswp__preloader__donut"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-					<div class="pswp__share-tooltip"></div>
-				</div>
-
-				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-				</button>
-
-				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-				</button>
-
-				<div class="pswp__caption">
-					<div class="pswp__caption__center"></div>
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<!-- Load Scripts Start -->
-	<script src="~/allurio/HTML/assets/js/libs.min.js"></script>
-	<script src="~/allurio/HTML/assets/js/gallery-init.js"></script>
-	<script src="~/allurio/HTML/assets/js/custom.js"></script>
-	<!-- Load Scripts End -->
+	<!-- Javascripts -->
+	<script src="~/hagenclassic/assets/js/jquery.js"></script>
+	<script src="~/hagenclassic/assets/js/plugins.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3gqyHylICdokv-P1q2WtRihCFhiFnm_U&sensor=false"></script>
+	<script src="~/hagenclassic/assets/js/map.js"></script>
+	<script src="~/hagenclassic/assets/js/main.js"></script>
 
 </body>
 
 </html>
+
