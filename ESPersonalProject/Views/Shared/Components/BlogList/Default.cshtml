@@ -4,53 +4,43 @@
 }
 
 <section id="blog">
-	<div class="spacer-75"></div>
-	<!-- Page Caption -->
-	<div class="section-title page-caption">
-		<h5>Stories</h5>
-		<div class="zigzag">
-			<hr class="left">
-			<hr class="right">
-			<svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="37" height="28" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
-			<path d="M1.357,12.26 10.807,2.81 20.328,12.332
-                      29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 " style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"></path>
-					  </svg>
-		</div>
-	</div>
-	<div class="spacer-45"></div>
-	<div class="row masonry largrid">
-		@foreach (var item in Model)
-		{
-			<div class="col-xl-4 grid-item classic-animation" data-delay=".2" data-duration="2">
-				<div class="blog-grid ">
-					<a href="single-blog.html" class="blog-grid-image">
-						<img src="@item.ImageUrl" alt="">
-					</a>
-					<div class="bottom-content">
-						<div class="categories">
-							<a class="category" href="single-blog.html" rel="category tag">
-								<span>Classic</span>
-							</a><a class="category" href="#" rel="category tag">
-								<span>Template</span>
-							</a><a class="category" href="#" rel="category tag">
-								<span>Uncategorized</span>
-							</a>
-						</div>
-						<a href="single-blog.html">
-							<h4 class="entry-title">
-								@item.Description
-							</h4>
-						</a>
-						<div class="metas">
-							<a class="author" href="#">Enes Şahin</a>
-							<div class="blog-date"> @item.DataCreated.ToString("dd/yyyy")</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		}
+    <div class="spacer-75"></div>
+    <!-- Page Caption -->
+    <div class="section-title page-caption">
+        <h5>Stories</h5>
+        <div class="zigzag">
+            <hr class="left">
+            <hr class="right">
+            <svg xml:space="preserve" viewBox="0 0 69.172 14.975" width="37" height="28" y="0px" x="0px"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <path d="M1.357,12.26 10.807,2.81 20.328,12.332 29.781,2.879 39.223,12.321 48.754,2.79 58.286,12.321 67.815,2.793 "
+                  style="stroke-dasharray: 93.9851, 93.9851; stroke-dashoffset: 0;"></path>
+            </svg>
+        </div>
+    </div>
+    <div class="spacer-45"></div>
+    <div class="row masonry largrid">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-4 grid-item classic-animation" data-delay=".2" data-duration="2">
+                <div class="blog-grid">
+                    <a href="@Url.Action("Detail","Default", new { id = item.Id })" class="blog-grid-image">
+                        <img src="@item.ImageUrl" alt="">
+                    </a>
+                    <div class="bottom-content">
 
-
-
-	</div>
+                        <a href="@Url.Action("Detail","Default", new { id = item.Id })">
+                            <h4 class="entry-title">
+                                @item.Description
+                            </h4>
+                        </a>
+                        <div class="metas">
+                            <a class="author" href="#">Enes Şahin</a>
+                            <div class="blog-date"> @item.DataCreated.ToString("dd/MM/yyyy")</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </section>

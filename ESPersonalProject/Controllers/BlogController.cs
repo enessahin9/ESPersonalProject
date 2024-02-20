@@ -16,6 +16,10 @@ namespace ESPersonalProject.Controllers
 		public IActionResult Index(int id)
 		{ 
 			var detail=_blogDetailService.TGetById(id);
+			if (detail == null)
+			{
+				return NotFound();
+			}
 			return View(detail);
 		}
 	

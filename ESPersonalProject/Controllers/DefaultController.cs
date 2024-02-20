@@ -1,11 +1,19 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Business.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ESPersonalProject.Controllers;
 [AllowAnonymous] //Loginden etkilenme 
 public class DefaultController : Controller
 {
-	public IActionResult Index()
+	private readonly IBlogDetailService _blogDetailService;
+
+    public DefaultController(IBlogDetailService blogDetailService)
+    {
+        _blogDetailService = blogDetailService;
+    }
+
+    public IActionResult Index()
 	{
 		return View();
 	}
@@ -27,4 +35,5 @@ public class DefaultController : Controller
 	{
 		return PartialView();
 	}
+
 }
