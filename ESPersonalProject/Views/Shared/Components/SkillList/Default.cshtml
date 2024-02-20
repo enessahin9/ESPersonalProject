@@ -1,0 +1,107 @@
+﻿@model List<Skill>
+@{
+	Layout = null;
+}
+
+
+<div class="skills">
+	<h5 class="underline-title classic-animation">My Skills</h5>
+	<div class="spacer-60"></div>
+
+
+	<div class="row">
+		<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 classic-animation">
+			<h2 class="skills-category">DESIGN</h2>
+		</div>
+		@for (int i = 0; i < Model.Count; i += 2)
+		{
+			<div class="col-xl-5 col-lg-5 col-md-5 col-sm-11 col-11 classic-animation" data-delay=".2">
+				<ul class="skill-list">
+					<li>
+						<div class="bar-info">
+							<h3>@Model[i].Name</h3>
+							<span>@Model[i].Value%</span>
+						</div>
+						<div class="progress">
+							<div class="percentage" data-percent="@Model[i].Value%"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			@if (i + 1 < Model.Count)
+			{
+				<div class="col-xl-5 col-lg-5 col-md-5 col-sm-11 col-11 classic-animation" data-delay=".5">
+					<ul class="skill-list">
+						<li>
+							<div class="bar-info">
+								<h3>@Model[i + 1].Name</h3>
+								<span>@Model[i + 1].Value%</span>
+							</div>
+							<div class="progress">
+								<div class="percentage" data-percent="@Model[i + 1].Value%"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			}
+		}
+		<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 classic-animation" data-delay=".4">
+			<h2 class="skills-category">CODING</h2>
+		</div>
+	</div>
+
+
+
+	<div class="spacer-45"></div>
+	<hr>
+	<div class="spacer-45"></div>
+
+	<div class="row">
+		<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 classic-animation" data-delay=".3">
+			<h2 class="skills-category">LANGUAGE</h2>
+		</div>
+		<div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11">
+			<div class="row">
+				<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+					 data-delay=".5">
+					<div class="chart" data-percent="92" data-scale-color="#ffb400">
+						<span class="percent">92</span>
+					</div>
+					<div class="skills-description">
+						<h6>English</h6>
+					</div>
+				</div>
+				<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+					 data-delay=".6">
+					<div class="chart" data-percent="70" data-scale-color="#ffb400">
+						<span class="percent">70</span>
+					</div>
+					<div class="skills-description">
+						<h6>French</h6>
+					</div>
+				</div>
+				<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+					 data-delay=".7">
+					<div class="chart" data-percent="30" data-scale-color="#ffb400">
+						<span class="percent">60</span>
+					</div>
+					<div class="skills-description">
+						<h6>Spanish</h6>
+					</div>
+				</div>
+				<div class="pie-chart col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6 classic-animation"
+					 data-delay=".8">
+					<div class="chart" data-percent="10" data-scale-color="#ffb400">
+						<span class="percent">10</span>
+					</div>
+					<div class="skills-description">
+						<h6>Japanese</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
