@@ -40,16 +40,17 @@ namespace Bussines.Container
 			services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 			services.AddScoped<ISocialMediaService, SocialMediaManager>();
 
-
 			services.AddScoped<IBlogCategoryDal, EfBlogCategoryDal>();
 			services.AddScoped<IBlogCategoryService, BlogCategoryManager>();
 
 			services.AddScoped<IBlogDetailDal, EfBlogDetailDal>();
 			services.AddScoped<IBlogDetailService, BlogDetailManager>();
 
-            services.AddSingleton<FileUpload>();
+			services.AddSingleton<FileUpload>();
 
+			services.AddScoped<IResumeDal, EfResumeDal>();
+			services.AddScoped<IResumeService, ResumeManager>();
 
-        }
+		}
 	}
 }
