@@ -15,6 +15,6 @@ public class ResumeList : Microsoft.AspNetCore.Mvc.ViewComponent
 	public IViewComponentResult Invoke()
 	{
 		var values = _resumeService.TGetList();
-		return View();
+		return View(values);
 	}
 }

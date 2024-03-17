@@ -1,4 +1,5 @@
 ﻿using Business.Service;
+using ESPersonalProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ESPersonalProject.ViewComponent.Contact
@@ -15,7 +16,11 @@ namespace ESPersonalProject.ViewComponent.Contact
 		public IViewComponentResult Invoke()
 		{
 			var values = _contactService.TGetList();
-			return View(values);
+			var ContactViewModel = new ContactView
+			{
+				Contacts = values,
+			};
+				return View(ContactViewModel);
 		}
 	}
 }
