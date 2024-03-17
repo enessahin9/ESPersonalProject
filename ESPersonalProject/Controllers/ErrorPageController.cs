@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace ESPersonalProject.Controllers
+namespace ESPersonalProject.Controllers;
+public class ErrorPageController : Controller
 {
-    public class ErrorPageController : Controller
+    [AllowAnonymous]
+    public IActionResult Error404()
     {
-        public IActionResult Error404()
-        {
-            return View();
-        }
-       
+        return View();
     }
+   
 }

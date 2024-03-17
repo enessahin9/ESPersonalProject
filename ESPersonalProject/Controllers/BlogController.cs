@@ -1,11 +1,13 @@
 ﻿using Business.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ESPersonalProject.Controllers
 {
-
+	[AllowAnonymous]
 	public class BlogController : Controller
 	{
+	
 		private readonly IBlogDetailService _blogDetailService;
 
 		public BlogController(IBlogDetailService blogDetailService)
