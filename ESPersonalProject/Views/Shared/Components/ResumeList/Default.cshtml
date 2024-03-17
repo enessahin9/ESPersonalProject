@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Resume>
+@{
 	Layout = null;
 }
 
@@ -18,7 +19,7 @@
 	</div>
 
 	<!-- Timeline Work -->
-	<div class="spacer-45"></div>
+	@* <div class="spacer-45"></div>
 	<div class="timeline-caption-outer">
 		<div class="timeline-caption">👨‍💻 <span>Works Experiences</span></div>
 	</div>
@@ -83,64 +84,39 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	</div> *@
 
 
 	<!-- Timeline -->
-	<div class="spacer-120"></div>
+	<div class="spacer-10"></div>
 	<div class="timeline-caption-outer">
 		<div class="timeline-caption">🎓 <span>Education</span></div>
 	</div>
 	<div class="timeline row">
-		<!-- item -->
-		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
-			 data-duration="1.5" data-delay=".5">
-			<div class="timeline-outer">
-				<span class="mini-text">2004 - 2009</span>
-				<h5>Abc University of Los Angeles</h5>
-				<p class="little-p">
-					I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
-					our business. I like tavonline more and more each day because it makes my life a lot easier.
-				</p>
+		@for (int i = 0; i < Model.Count; i += 2)
+		{
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
+				 data-duration="1.5" data-delay=".@(i * 0.2)">
+				<div class="timeline-outer">
+					<span class="mini-text">@Model[i].Interval</span>
+					<h5>@Model[i].Name</h5>
+					<p class="little-p">@Model[i].Description</p>
+				</div>
 			</div>
-		</div>
-		<!-- item -->
-		<div class="col-xl-6 offset-xl-6 col-lg-6 offset-lg-6 col-md-6 offset-md-6 col-sm-12 timeline-item clip-animation from-top"
-			 data-duration="1.5" data-delay=".7">
-			<div class="timeline-outer">
-				<span class="mini-text">2004 - 2003</span>
-				<h5>Drawing Course</h5>
-				<p class="little-p">
-					I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
-					our business. I like tavonline more and more each day because it makes my life a lot easier.
-				</p>
-			</div>
-		</div>
-		<!-- item -->
-		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 timeline-item clip-animation from-top"
-			 data-duration="1.5" data-delay="1">
-			<div class="timeline-outer">
-				<span class="mini-text">2000 - 2003 </span>
-				<h5>Abc High School </h5>
-				<p class="little-p">
-					I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
-					our business. I like tavonline more and more each day because it makes my life a lot easier.
-				</p>
-			</div>
-		</div>
-		<!-- item -->
-		<div class="col-xl-6 offset-xl-6 col-lg-6 offset-lg-6 col-md-6 offset-md-6 col-sm-12 timeline-item clip-animation from-top"
-			 data-duration="1.5" data-delay="1.2">
-			<div class="timeline-outer">
-				<span class="mini-text">2010 - Present</span>
-				<h5>Abc Collage of Los Angeles</h5>
-				<p class="little-p">
-					I would gladly pay over 600 dollars for tavonline. Tavonline has really helped
-					our business. I like tavonline more and more each day because it makes my life a lot easier.
-				</p>
-			</div>
-		</div>
+			@if (i + 1 < Model.Count)
+			{
+				<div class="col-xl-6 offset-xl-6 col-lg-6 offset-lg-6 col-md-6 offset-md-6 col-sm-12 timeline-item clip-animation from-top"
+					 data-duration="1.5" data-delay=".@(i * 0.2 + 0.2)">
+					<div class="timeline-outer">
+						<span class="mini-text">@Model[i + 1].Interval</span>
+						<h5>@Model[i + 1].Name</h5>
+						<p class="little-p">@Model[i + 1].Description</p>
+					</div>
+				</div>
+			}
+		}
 	</div>
+
 
 	<div class="spacer-60"></div>
 

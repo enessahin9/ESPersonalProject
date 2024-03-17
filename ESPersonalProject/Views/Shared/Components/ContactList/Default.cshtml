@@ -1,4 +1,4 @@
-﻿@model List<Contact>
+﻿@model ContactView
 @{
 	Layout = null;
 }
@@ -7,7 +7,7 @@
 	<div class="spacer-75"></div>
 	<!-- Page Caption -->
 	<div class="section-title page-caption">
-		<h5>Get in Touch</h5>
+		<h5>İletişim</h5>
 		<div class="zigzag">
 			<hr class="left">
 			<hr class="right">
@@ -25,67 +25,36 @@
 
 		<div class="spacer-75"></div>
 		<!-- contact info -->
-		@foreach (var item in Model)
+		@foreach (var item in Model.Contacts)
 		{
 			<div class="col-xl-5 scale-animation" data-delay="2" data-duration="3">
 				<div class="contact-info email">
-					<p class="little-p info-title">Write me</p>
+					<p class="little-p info-title">Bana Ulaş!</p>
 					<a href="mailto:hello@mosbycreative.com">@item.Email</a>
 				</div>
 				<div class="contact-info address">
-					<p class="little-p info-title">My office</p>
+					<p class="little-p info-title">İş Yeri</p>
 					<p>
 						@item.Phone
 					</p>
 				</div>
 				<div class="contact-info address">
-					<p class="little-p info-title">My address</p>
+					<p class="little-p info-title">Adres</p>
 					<p>
 						@item.Address
 					</p>
 				</div>
 				<div class="contact-info social">
-					<p class="little-p info-title">Follow us</p>
-					<a href="#">Facebook.</a>
-					<a href="#">Twitter.</a>
-					<a href="#">Behance.</a>
-					<a href="#">Dribbble.</a>
-					<a href="#">Instagram.</a>
+					<p class="little-p info-title">Takip Et</p>
 					<a href="#">Linkedin.</a>
+					<a href="#">GitHub.</a>
+					<a href="#">Medium.</a>
+
 				</div>
 			</div>
 		}
-		<div class="col-xl-6 offset-xl-1 scale-animation" data-delay="2" data-duration="3">
-			<!-- form -->
-			<div id="contact-formular">
-				<p class="little-p info-title">Or fill this form</p>
-				<div class="spacer-10"></div>
-				<div id="message"></div>
-				<form method="post" name="contactform" action="contact.php" id="contactform" class="row" autocomplete="off">
-					<!-- name -->
-					<div class="col-xl-12 contact-bar">
-						<input type="text" style="display:none" />
-						<input class="inp" name="name" type="text" placeholder="Name" id="name">
-					</div>
-					<!-- email -->
-					<div class="col-xl-12 contact-bar">
-						<input class="inp" name="email" type="text" placeholder="Email" id="email">
-					</div>
-					<!-- company -->
-					<div class="col-xl-12 contact-bar">
-						<input class="inp" name="company" type="text" placeholder="Company" id="company">
-					</div>
-					<!-- about project -->
-					<div class="col-xl-12 contact-bar">
-						<textarea class="inp" name="comments" id="comments" rows="3" placeholder="Tell me about your project"></textarea>
-					</div>
-					<!-- button -->
-					<div class="form-btn col-xl-12 contact-bar">
-						<input class="site-btn" type="submit" value="Send">
-					</div>
-				</form>
-			</div>
-		</div>
+
+		@await Html.PartialAsync("SendMessage")
 	</div>
 
 	<!-- clients -->

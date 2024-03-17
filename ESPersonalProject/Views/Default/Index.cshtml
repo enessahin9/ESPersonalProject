@@ -1,79 +1,18 @@
 ﻿@{
-	Layout = null;
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/ThemaLayout.cshtml";
 }
-<!doctype html>
-<html lang="en">
 
-@await Html.PartialAsync("HeadPartial")
+@await Component.InvokeAsync("AboutList")
 
-<body class="onepage">
+<!-- RESUME -->
+@await Component.InvokeAsync("ResumeList")
+<!-- PORTFOLIO -->
+@await Component.InvokeAsync("PortfolioList")
 
-	<!-- Preloader  -->
-	@await Html.PartialAsync("LoaderPartial")
-	<!-- Preloader End -->
+<!-- BLOG SECTION
+================================================== -->
+@await Component.InvokeAsync("BlogList")
 
-
-	<div class="page-cover">
-		<div id="page-scroll">
-			<div class="barba-wrapper" data-barba="wrapper">
-				<main data-barba="container">
-					<!-- Page Wrapper -->
-					<div class="container">
-						<div class="page-wrapper">
-
-							<header id="fixed">
-								<div class="hamburger hamburger--elastic">
-									<span class="hamburger-box"> <span class="hamburger-inner"></span> </span>
-								</div>
-								<nav>
-									<ul>
-										<li><a class="active" href="#home">Home</a></li>
-										<li><a href="#resume">Resume</a></li>
-										<li><a href="#portfolio">Portfolio</a></li>
-										<li><a href="#blog">Blog</a></li>
-										<li><a href="#contact">Contact</a></li>
-									</ul>
-								</nav>
-							</header>
-
-							@* //About *@
-
-							@await Component.InvokeAsync("AboutList")
-							@await Component.InvokeAsync("ServiceList")
-
-							<!-- RESUME -->
-							@await Component.InvokeAsync("ResumeList")
-
-							<!-- PORTFOLIO -->
-							@await Component.InvokeAsync("PortfolioList")
-
-
-							<!-- BLOG SECTION
-							================================================== -->
-							@await Component.InvokeAsync("BlogList")
-
-							<!-- CONTACT -->
-							@await Component.InvokeAsync("ContactList")
-
-
-						</div> <!-- page wrapper end -->
-					</div><!-- container -->
-					<!-- FOOTER -->
-					@await Html.PartialAsync("FooterPartial")
-				</main>
-			</div>
-		</div>
-	</div>
-	<div class="bg-image" style="background-image: url(/hagenclassic/assets/images/backg.jpg);"></div>
-
-	<!-- Javascripts -->
-	<script src="~/hagenclassic/assets/js/jquery.js"></script>
-	<script src="~/hagenclassic/assets/js/plugins.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3gqyHylICdokv-P1q2WtRihCFhiFnm_U&sensor=false"></script>
-	<script src="~/hagenclassic/assets/js/map.js"></script>
-	<script src="~/hagenclassic/assets/js/main.js"></script>
-
-</body>
-
-</html>
-
+<!-- CONTACT -->
+@await Component.InvokeAsync("ContactList")
