@@ -18,6 +18,7 @@ public class MessageController : Controller
 
 	public IActionResult Index()
 	{
+		var values = _messageService.TGetList();
 		return View();
 	}
 
