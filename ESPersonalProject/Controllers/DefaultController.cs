@@ -3,6 +3,7 @@ using ESPersonalProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
+using Models;
 
 namespace ESPersonalProject.Controllers;
 [AllowAnonymous] //Loginden etkilenme 
@@ -45,15 +46,29 @@ public class DefaultController : Controller
 		return View();
 	}
 	[HttpPost]
-	public IActionResult Index(ContactView contactView)
+	public IActionResult SendMessage(ContactViewModel contact)
 	{
 		if (ModelState.IsValid)
 		{
 			var message = new MimeMessage();
-			message.From.Add(new MailboxAddress("Kullanıcı", "enessahin9@outlook.com"));
+			message.From.Add(new MailboxAddress("Sitemden Gelen Mesaj", "sahinnn210@gmail.com"));
 			message.To.Add(new MailboxAddress("Alıcı Adı", "enessahin9@outlook.com"));
-			message.Subject = contactView.Subject();
+			message.Subject = contact.Subject;
+			message.Body = new TextPart("plain")
+			{
+				Text = "Name: " + contact.Name + "\n" + "Email: " + contact.Email + "\n" + "Subject: " + contact.Subject + "\n" + "Body: " + contact.Body
+			};
 
+			using (var client = new MailKit.Net.Smtp.SmtpClient())
+			{
+				client.Connect("smtp.gmail.com", 587, false);
+				client.Authenticate("sahinnn210@gmail.com", "gmuzolkvvymcngbw");
+				client.Send(message);
+				client.Disconnect(true);
+			};
+
+			return RedirectToAction("Index");
 		}
+		return View();
 	}
 }
