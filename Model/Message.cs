@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models
+namespace Models;
+public class Message : BaseModel
 {
-	public class Message : BaseModel
-	{
-		public string Email { get; set; }
-		public string Content { get; set; }
-		public string Title { get; set; }
-	}
+	public string Email { get; set; }
+	public string Content { get; set; }
+	public string Title { get; set; }
 }
