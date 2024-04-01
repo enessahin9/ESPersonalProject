@@ -4,23 +4,23 @@
 		<p class="little-p info-title">Or fill this form</p>
 		<div class="spacer-10"></div>
 		<div id="message"></div>
-		<form method="post" name="contactform" action="contact.php" id="contactform" class="row" autocomplete="off">
+		<form method="post" action="/Default/SendMessage" class="row" autocomplete="off">
 			<!-- name -->
 			<div class="col-xl-12 contact-bar">
 				<input type="text" style="display:none" />
-				<input class="inp" name="name" type="text" placeholder="Name" id="name">
+				<input class="inp" name="Name" type="text" placeholder="Ad Soyad" id="name">
 			</div>
 			<!-- email -->
 			<div class="col-xl-12 contact-bar">
-				<input class="inp" name="email" type="text" placeholder="Email" id="email">
+				<input class="inp" name="Email" type="text" placeholder="Email" id="email">
 			</div>
-			<!-- company -->
+			<!-- subject -->
 			<div class="col-xl-12 contact-bar">
-				<input class="inp" name="company" type="text" placeholder="Company" id="company">
+				<input class="inp" name="Subject" type="text" placeholder="Konu" id="company">
 			</div>
-			<!-- about project -->
+			<!-- body -->
 			<div class="col-xl-12 contact-bar">
-				<textarea class="inp" name="comments" id="comments" rows="3" placeholder="Tell me about your project"></textarea>
+				<textarea class="inp" name="Body" id="comments" rows="3" placeholder="İletmek istediğiniz mesaj."></textarea>
 			</div>
 			<!-- button -->
 			<div class="form-btn col-xl-12 contact-bar">
