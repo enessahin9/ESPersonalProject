@@ -19,6 +19,7 @@ namespace DataLayer.Repository
 		public void Add(T t)
 		{
 			_appDbContext.Add(t);
+			_appDbContext.SaveChanges();
 		}
 
 		public void Delete(T t)
