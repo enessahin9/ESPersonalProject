@@ -54,19 +54,6 @@
 </div>
 
 
-<!-- jQuery (en az 3.3.1 sürümü) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<!-- DataTables (1.13.7 sürümü) -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<!-- Bootstrap JS (uygun sürümü ekleyin) -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script>
 	$(document).ready(function () {
@@ -81,6 +68,14 @@
 
 		// Kaydet düğmesi tıklama olayı
 		$("#btnSave").click(function () {
+			if ($("#txtName").val().trim() === '' || $("#txtValue").val().trim() === '') {
+				Swal.fire(
+					'Hata!',
+					'Lütfen Enes Bey Tüm Alanları Doldurun',
+					'error'
+				);
+				return;
+			}
 			var veri = {
 				name: $("#txtName").val(),
 				value: $("#txtValue").val(),
@@ -94,7 +89,7 @@
 					$("#modal").modal('hide');
 					$("#txtName").val("");
 					$("#txtValue").val("");
-					$("#resumeTable").DataTable().ajax.reload();
+					$("#skillTable").DataTable().ajax.reload();
 				},
 				error: function (error) {
 					Swal.fire(
@@ -121,14 +116,14 @@
 					data: null,
 					render: function (data, type, row) {
 						return `<a href="#" onclick="deleteSkill(${row.id})" class="btn btn-sm btn-danger">Sil</a>
-														<a href="#" onclick="editResume(${data.id})" class="btn btn-sm btn-primary">Düzenle</a>`;
+																<a href="#" onclick="editSkill('${row.id}')" class="btn btn-sm btn-primary">Düzenle</a>`;
 					}
 				}
 			]
 		});
 	});
 
-	function deleteResume(skillId) {
+	function deleteSkill(skillId) {
 		Swal.fire({
 			title: 'Silmek istediğinize emin misiniz?',
 			text: "Yetenek Silinecek",
@@ -148,7 +143,7 @@
 							'Yetenek silindi.',
 							'success'
 						);
-						$("#resumeTable").DataTable().ajax.reload();
+						$("#skillTable").DataTable().ajax.reload();
 					},
 					error: function () {
 						Swal.fire(
@@ -161,5 +156,70 @@
 			}
 		});
 	}
+
+	function editSkill(skillId) {
+		$("#modalTitle").text("Yetenek Düzenle");
+		$("#btnSave").text("Güncelle").removeClass('btn-primary').addClass('btn-success');
+
+		$.ajax({
+			type: 'GET',
+			url: '/Admin/Skill/SkillUpdateGet',
+			data: { id: skillId },
+			success: function (res) {
+				$("#txtName").val(res.name);
+				$("#txtValue").val(res.value);
+
+				$("#btnSave").off().click(function () {
+
+					if ($("#txtName").val().trim() === '' || $("#txtValue").val().trim() === '') {
+						Swal.fire(
+							'Hata!',
+							'Lütfen tüm alanları doldurun.',
+							'error'
+						);
+						return;
+					}
+
+					let formData = {
+						Id: skillId,
+						Name: $("#txtName").val(),
+						Value: $("#txtValue").val()
+					};
+
+					$.ajax({
+						url: "/Admin/Skill/SkillUpdate",
+						type: "POST",
+						data: JSON.stringify(formData),
+						contentType: "application/json",
+						processData: false,
+						success: function (response) {
+							$("#modal").modal('hide');
+							$("#txtName").val("");
+							$("#txtValue").val("");
+
+							$('#skillTable').DataTable().ajax.reload();
+						},
+						error: function (error) {
+							Swal.fire(
+								'Hata!',
+								'Veri güncelleme işlemi başarısız oldu. Hata: ' + error.statusText,
+								'error'
+							);
+						}
+					});
+				});
+
+				$("#modal").modal('show');
+			},
+			error: function (error) {
+				Swal.fire(
+					'Hata!',
+					'Veri getirme işlemi başarısız oldu. Hata: ' + error.statusText,
+					'error'
+				);
+			}
+		});
+	}
+
 
 </script>

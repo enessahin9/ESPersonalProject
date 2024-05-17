@@ -46,9 +46,23 @@ public class SkillController : Controller
 		return Ok();
 	}
 
-	[HttpPost]
-	public IActionResult SkillUpdate()
+	[HttpGet]
+	public IActionResult SkillUpdateGet(int id)
 	{
+	 var values=_skillService.TGetById(id);
+		if (values==null)
+		{
+			return NotFound();
+
+		}
+		return Json(values);
+	}
+	[HttpPost]
+	public IActionResult SkillUpdate(Skill skill)
+	{
+		var values=_skillService.TGetById(skill.Id);
+		
+		_skillService.TUpdate(values);
 		return Ok();
 	}
 }
